@@ -13,6 +13,10 @@
 <body class="align">
 
     <div class="grid">
+        <div class="welcome">
+            <h1>Bienvenue</h1>
+            <p>CodingCollege</p>
+        </div>
         <h5 class="message">
             @error('email')
           <span class="invalid-feedback" role="alert">
@@ -43,14 +47,12 @@
         </div>
   
         <div class="form__field">
-          <input type="submit" value="Sign In">
+          <input type="submit" value="Se connecter">
         </div>
   
       </form>
   
-      <p class="text--center">Not a member? <a href="#">Sign up now</a> <svg class="icon">
-          <use xlink:href="#icon-arrow-right"></use>
-        </svg></p>
+     
   
     </div>
   
