@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('fac', function (Blueprint $table) {
             $table->id();
+            $table->String(nom_fac);
             $table->timestamps();
         });
     }
