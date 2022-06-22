@@ -49,7 +49,7 @@
         <div class="iocn-link">
           <a href="#">
             <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Dashboard</span>
+            <span class="link_name">Enseignants</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>

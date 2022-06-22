@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::middleware(['auth',])->group(function(){
+    Route::get('/','App\Http\Controllers\DashboardController@login');
     Route::get('dashboard','App\Http\Controllers\DashboardController@index');
+  
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
