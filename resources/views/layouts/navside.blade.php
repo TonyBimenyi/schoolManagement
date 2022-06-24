@@ -40,7 +40,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Etudiants</a></li>
-          <li><a href="#">Liste des etudiants</a></li>
+          <li><a href="{{url('etudiant')}}">Liste des etudiants</a></li>
           <li><a href="#">Ajouter Un etudiant</a></li>
           <li><a href="#">Gerer les etudiants</a></li>
         </ul>
@@ -126,8 +126,8 @@
         <!--<img src="image/profile.jpg" alt="profileImg">-->
       </div>
       <div class="name-job">
-        <div class="profile_name">Prem Shahi</div>
-        <div class="job">Web Desginer</div>
+        <div class="profile_name">{{Auth::user()->name;}}</div>
+        <div class="job">Super Admin</div>
       </div>
       <i class='bx bx-log-out' ></i>
     </div>
@@ -137,7 +137,7 @@
   <section class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Drop Down Sidebar</span>
+      <span class="text">Systeme de Gestion</span>
     </div>
   </section>
   <script>
