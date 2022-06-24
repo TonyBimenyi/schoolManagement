@@ -1,4 +1,4 @@
-@extends('layouts.front')
-@section('content')
-        <h1>DASHBOARD</h1>
+@extends('layouts.navside')
+@section('da')
+<h1>askldas</h1>
 @endsection

@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    @include('layouts.navside')
-    <div class="content">
-        @yield('content')
+    <div class="wrapper">
+        @include('layouts.navside')
+      
     </div>
 </body>
 </html>

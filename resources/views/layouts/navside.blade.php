@@ -132,11 +132,15 @@
   </li>
 </ul>
   </div>
+
   <section class="home-section">
     <div class="home-content">
       <i class='bx bx-menu' ></i>
+
       <span class="text">Systeme de Gestion</span>
+     
     </div>
+    @yield('da')
   </section>
   <script>
   let arrow = document.querySelectorAll(".arrow");
