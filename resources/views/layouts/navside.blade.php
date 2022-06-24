@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
-<html lang="en" dir="ltr">
+
   <head>
     <meta charset="UTF-8">
     <!--<title> Drop Down Sidebar Menu | CodingLab </title>-->
@@ -156,4 +154,3 @@
   });
   </script>
 </body>
-</html>

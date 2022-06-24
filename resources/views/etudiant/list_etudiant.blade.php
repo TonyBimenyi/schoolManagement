@@ -1,4 +1,4 @@
-@extends('layouts.navside')
+@extends('layouts.front')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">
