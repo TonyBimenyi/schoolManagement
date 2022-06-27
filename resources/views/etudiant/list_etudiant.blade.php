@@ -68,6 +68,7 @@
                             <th>USERNAME</th>
                             <th>EMAIL</th>
                             <th>ROLE</th>
+                            <th>STATUT</th>
                             <th colspan="2">OPTIONS</th>
                         </tr>
                     </thead>
@@ -77,6 +78,9 @@
                             <td>Admin</td>
                             <td>bito@biu.bi</td>
                             <td> <button id="role">Admin</button></td>
+                            <td> <button id="etat"> Desactiver</button> <br>
+                                <small style="color: green;font-weight:700">Etat:active</small>
+                            </td>
                             <td id="btn"> <button  id="edit">Modifier</button></td>
                             <td> <button  id="delete">Supprimer</button></td>
                         </tr>

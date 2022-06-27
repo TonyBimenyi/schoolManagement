@@ -103,7 +103,7 @@ thead th{
  tbody td{
     text-align: center;
     font-size: 13px;
-    padding: 10px 0px;
+    padding: 05px 0px;
     border-bottom: 1px solid var(--primary);
 }
 tbody tr{
@@ -141,6 +141,14 @@ tbody tr{
 }
 #btn{
     padding: 0px;
+}
+#etat{
+    border: none;
+    background-color: var(--grey);
+    color: white;
+    padding: 0px 5px;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
 
