@@ -63,18 +63,22 @@
             <div class="table_list">
                 <table>
                     <thead>
-                        <th>
-                            <td>#ID</td>
-                            <td>USERNAME</td>
-                            <td>EMAIL</td>
-                            <td>ROLE</td>
-                            <TD>OPTIONS</TD>
-                        </th>
+                        <tr>
+                            <th>#ID</th>
+                            <th>USERNAME</th>
+                            <th>EMAIL</th>
+                            <th>ROLE</th>
+                            <th colspan="2">OPTIONS</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td></td>
+                            <td>Admin</td>
+                            <td>bito@biu.bi</td>
+                            <td> <button id="role">Admin</button></td>
+                            <td id="btn"> <button  id="edit">Modifier</button></td>
+                            <td> <button  id="delete">Supprimer</button></td>
                         </tr>
                     </tbody>
                 </table>

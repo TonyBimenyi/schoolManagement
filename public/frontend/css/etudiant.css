@@ -40,6 +40,10 @@
 .menu_li:hover{
     background-color: var(--active);
     cursor: pointer;
+    transition: .4s;
+}
+.header_part .active{
+    background-color: var(--active);
 }
 .menu{
     background-color: white;
@@ -87,7 +91,7 @@
     color: var(--primary);
     outline: none;
 }
-thead td{
+thead th{
    padding: 10px 0px 10px 05px;
    background-color: var(--primary);
    color: white;
@@ -96,14 +100,47 @@ thead td{
    font-size: 12px;
    letter-spacing: 2px;
 }
-table tbody td{
+ tbody td{
     text-align: center;
-
+    font-size: 13px;
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--primary);
+}
+tbody tr{
+    border-bottom: 1px solid var(--primary);
 }
 .table_content table{
     margin: 0 auto;
     margin-top: 20px;
     width: 95%;
+}
+#edit{
+    background-color: var(--primary);
+    border: none;
+    padding: 03px 10px;
+    color: white !important;
+    font-weight: 700;
+    border-radius: 3px;
+
+}
+#delete{
+    background-color: var(--danger);
+    border: none;
+    padding: 03px 10px;
+    color: white !important;
+    font-weight: 700;
+    border-radius: 3px;
+}
+#role{
+    background-color: var(--grey);
+    border: none;
+    padding: 3px 010px;
+    color: white !important;
+    font-weight: 700;
+    border-radius: 150px; 
+}
+#btn{
+    padding: 0px;
 }
 
 
