@@ -6,6 +6,8 @@
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('frontend/css/navside.css')}}">
      <style>
      
@@ -25,22 +27,23 @@
           <span class="link_name">Dashboard</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Etudiants</a></li>
+          <li><a class="link_name" href="#">Dashboard</a></li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
           <a href="#">
             <i class='bx bx-collection' ></i>
-            <span class="link_name">Etudiants</span>
+            <span class="link_name">Utilisateurs</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Etudiants</a></li>
-          <li><a href="{{url('etudiant')}}">Liste des etudiants</a></li>
-          <li><a href="#">Ajouter Un etudiant</a></li>
-          <li><a href="#">Gerer les etudiants</a></li>
+          <li><a class="link_name" href="#">Utilisateurs</a></li>
+          <li><a href="{{url('etudiant')}}">Admins</a></li>
+          <li><a href="#">Etudiants</a></li>
+          <li><a href="#">Enseignants</a></li>
+          <li><a href="#">Staff</a></li>
         </ul>
       </li>
       <li>
