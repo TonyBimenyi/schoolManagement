@@ -136,8 +136,9 @@ tbody tr{
     border: none;
     padding: 3px 010px;
     color: white !important;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 150px; 
+    font-size: 11px !important;
 }
 #btn{
     padding: 0px;

@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class Fac extends Model
+class Utilisateur extends Model
 {
     use HasFactory;
-    protected $table = 'fac';
+    use HasFactory;
+    protected $table = 'users';
     protected $fillable = [
-        'nom_fac',
-        'spec'
+        'name',
+        'email',
+        'role',
+        'password',
+        'etat'
     ];
 }

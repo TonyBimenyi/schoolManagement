@@ -1,7 +1,4 @@
-<head>
-    <link rel="stylesheet" href="{{asset('frontend/css/etudiant.css')}}">
-</head>
-<div class="container">
+
     <div class="header_part">
         <div class="menu_li active">
             <div class="icon">
@@ -38,5 +35,3 @@
         </div>
        
     </div>
-
-</div>

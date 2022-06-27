@@ -33,7 +33,7 @@
       <li>
         <div class="iocn-link">
           <a href="#">
-            <i class='bx bx-collection' ></i>
+            <i class="fa-solid fa-users"></i>
             <span class="link_name">Utilisateurs</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
