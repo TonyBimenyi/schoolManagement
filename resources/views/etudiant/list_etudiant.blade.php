@@ -5,7 +5,7 @@
 </head>
 <div class="container">
     <div class="header_part">
-        <div class="menu_li">
+        <div class="menu_li active">
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
@@ -15,42 +15,45 @@
         </div>
         <div class="menu_li">
             <div class="icon">
-                Icon Here
+                <i class="fa-solid fa-graduation-cap"></i>
+               
             </div>
             <div class="text">
-                <p>ADMINS</p>
+                <p>ETUDIANTS</p>
             </div>
         </div>
         <div class="menu_li">
             <div class="icon">
-                Icon Here
+                <i class="fa-solid fa-people-group"></i>
             </div>
             <div class="text">
-                <p>ADMINS</p>
+                <p>ENSEIGNANTS</p>
             </div>
         </div>
         <div class="menu_li">
             <div class="icon">
-                Icon Here
+                <i class="fa-solid fa-people-group"></i>
             </div>
             <div class="text">
-                <p>ADMINS</p>
+                <p>STAFF</p>
             </div>
         </div>
-        <div class="menu_li">
-            <div class="icon">
-                Icon Here
+       
+    </div>
+    <div class="second_row">
+        <div class="menu">
+            <div class="text ">
+                <p id="active">LISTE DES ADMINS</p>
             </div>
             <div class="text">
-                <p>ADMINS</p>
+                <p>NOUVEAU</p>
             </div>
         </div>
-        <div class="menu_li">
-            <div class="icon">
-                Icon Here
-            </div>
-            <div class="text">
-                <p>ADMINS</p>
+    </div>
+    <div class="table">
+        <div class="table_content">
+            <div class="search">
+                
             </div>
         </div>
     </div>
