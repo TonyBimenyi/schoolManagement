@@ -52,8 +52,32 @@
     </div>
     <div class="table">
         <div class="table_content">
-            <div class="search">
-                
+            <div class="search_row">
+                <div class="sort">
+
+                </div>
+                <div class="search">
+                    <input type="search" placeholder="Rechercher...">
+                </div>
+            </div>
+            <div class="table_list">
+                <table>
+                    <thead>
+                        <th>
+                            <td>#ID</td>
+                            <td>USERNAME</td>
+                            <td>EMAIL</td>
+                            <td>ROLE</td>
+                            <TD>OPTIONS</TD>
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
