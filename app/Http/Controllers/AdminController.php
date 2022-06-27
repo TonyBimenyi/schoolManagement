@@ -12,5 +12,9 @@ class AdminController extends Controller
        $utilisateur = Utilisateur::get();
        return view('utilisateurs.admin.admin',compact('utilisateur'));
     }
+    public function create_admin(Request $request)
+    {
+        return view('utilisateurs.admin.create_admin');
+    }
 }
 

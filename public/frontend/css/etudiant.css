@@ -151,5 +151,8 @@ tbody tr{
     border-radius: 2px;
     cursor: pointer;
 }
+a{
+    text-decoration: none;
+}
 
 
