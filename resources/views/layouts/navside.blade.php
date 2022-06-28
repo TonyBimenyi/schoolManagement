@@ -41,7 +41,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Utilisateurs</a></li>
-          <li><a href="{{url('etudiant')}}">Admins</a></li>
+          <li><a href="{{url('admin')}}">Admins</a></li>
           <li><a href="#">Etudiants</a></li>
           <li><a href="#">Enseignants</a></li>
           <li><a href="#">Staff</a></li>

@@ -3,11 +3,16 @@
 <head>
     <link rel="stylesheet" href="{{asset('frontend/css/etudiant.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/form.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/top.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/table.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}">
+    
 </head>
 <div class="container">
   @include('layouts.top_row.utu_top')
   @include('layouts.second_row.uti')
-  <div class="center">
+  {{-- <div class="center">
     <input type="checkbox" id="click">
     <label for="click" class="click-me">Click me</label>
 <div class="content">
@@ -20,6 +25,24 @@
    <div class="line"></div>
    <label for="click" class="close-btn">Close</label>
 </div>
+</div> --}}
+<div class="form">
+    <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un administrateur</h3>
+    <form action="">
+        <div class="row">
+            <div class="labels">
+                <label for="">Nom et Prenom</label>
+            </div>
+            <div class="input_group">
+                <div class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="Nom et Prenom">
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 </div>
 @endsection
