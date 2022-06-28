@@ -23,7 +23,7 @@ Route::middleware(['auth',])->group(function(){
     Route::get('/','App\Http\Controllers\DashboardController@login');
     Route::get('dashboard','App\Http\Controllers\DashboardController@index');
     Route::get('admin','App\Http\Controllers\AdminController@list_admin');
-    Route::post('create_admin','App\Http\Controllers\AdminController@create_admin');
-    Route::post('create_student','App\Http\Controllers\StudentController@create_student');
+    Route::get('create_admin','App\Http\Controllers\AdminController@create_admin');
+    Route::get('create_student','App\Http\Controllers\StudentController@create_student');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
