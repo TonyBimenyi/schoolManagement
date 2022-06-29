@@ -7,7 +7,7 @@
 </head>
 <div class="container">
     @include('layouts.top_row.utu_top')
-    @include('layouts.second_row.uti')
+    @include('layouts.second_row.tea')
     <div class="table">
         <div class="table_content">
             <div class="search_row">
@@ -26,6 +26,7 @@
                             <th>NOM</th>
                             <th>PRENOM</th>
                             <th>TELEPHONE</th>
+                            <th>EMAIL</th>
                             <th>ADDRESSE</th>
                             <th>SEXE</th>
                             <th colspan="3">OPTIONS</th>
@@ -39,6 +40,7 @@
                                 <td>{{ $ens->nom_ens }}</td>
                                 <td>{{ $ens->prenom_ens }}</td>
                                 <td>{{ $ens->telephone_ens }}</td>
+                                <td>{{ $ens->email_ens }}</td>
                                 <td>{{ $ens->adress_ens }}</td>
                                 <td>{{ $ens->sexe_ens }}</td>
                                 <td><button class="edit">Details</button></td>

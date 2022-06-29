@@ -12,4 +12,8 @@ class TeacherController extends Controller
         $enseignant = Teacher::get();
         return view('utilisateurs.teacher.teacher',compact('enseignant'));
     }
+    public function create_teacher(Request $request)
+    {
+        return view('utilisateurs.teacher.create_teacher');
+    }
 }
