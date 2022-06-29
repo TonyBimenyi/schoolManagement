@@ -26,7 +26,7 @@
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="input">
-                            <input type="text" placeholder="Nom..." name="nom">
+                            <input type="text" placeholder="Nom..." name="nom" required>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="input">
-                            <input type="text" placeholder="Prenom..." name="prenom">
+                            <input type="text" placeholder="Prenom..." name="prenom" required>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                             <i class="fa-solid fa-phone"></i>
                         </div>
                         <div class="input">
-                            <input type="number" placeholder="+257 76 78 76" name="phone">
+                            <input type="number" placeholder="+257 76 78 76" name="phone" required>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="input_date">
-                                <input class="date" type="date" placeholder="sdi" name="mail">
+                                <input class="date" type="date" placeholder="sdi" name="mail" required>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <div class="input">
-                            <input type="text" placeholder="Addresse..." name="adresse">
+                            <input type="text" placeholder="Addresse..." name="adresse" required>
                         </div>
                     </div>
                 </div>
