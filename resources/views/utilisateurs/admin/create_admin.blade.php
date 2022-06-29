@@ -30,6 +30,7 @@
     <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un administrateur</h3>
     <form action="">
         <div class="row">
+<<<<<<< HEAD
             <div class="labels">
                 <label for="">Nom et Prenom</label>
             </div>
@@ -39,6 +40,45 @@
                 </div>
                 <div class="input">
                     <input type="text" placeholder="Nom et Prenom">
+=======
+            <div class="input_row">
+                <div class="labels">
+                    <label for="">Nom et Prenom</label>
+                </div>
+                <div class="input_group">
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="Nom et Prenom">
+                    </div>
+                </div>
+            </div>
+            <div class="input_row">
+                <div class="labels">
+                    <label for="">Nom d'utilisateur</label>
+                </div>
+                <div class="input_group">
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="Nom et Prenom">
+                    </div>
+                </div>
+            </div>
+            <div class="input_row">
+                <div class="labels">
+                    <label for="">Nom et Prenom</label>
+                </div>
+                <div class="input_group">
+                    <div class="icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="Nom et Prenom">
+                    </div>
+>>>>>>> 281603504020ddd1ca5a015d1c4b83b39bd7024d
                 </div>
             </div>
         </div>
