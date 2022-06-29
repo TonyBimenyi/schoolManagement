@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($utilisateur as $uti )               
+                        @foreach ($utilisateur as $uti )
                             <tr>
                                 <td>{{$uti->id}}</td>
                                 <td>{{$uti->name}}</td>
@@ -43,11 +43,11 @@
                                     {{-- @else --}}
                                     <small style="color: green;font-weight:700"> Etat:Active </small>
                                     {{-- @endif --}}
-                                       
+
                                 </td>
-                                <td id="btn"> <button  id="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
+                                <td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
                                 <td> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></td>
-                            </tr>                       
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

@@ -1,6 +1,6 @@
 
 <div class="header_part">
-    <a href="#">
+    <a href="{{ url('admin') }}">
     <div class="menu_li active">
         <div class="icon">
             <i class="fa-solid fa-user"></i>
@@ -14,7 +14,7 @@
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-graduation-cap"></i>
-           
+
         </div>
         <div class="text">
             <p>ETUDIANTS</p>
@@ -39,6 +39,6 @@
         <div class="text">
             <p>STAFF</p>
         </div>
-    </div> 
+    </div>
     </a>
 </div>

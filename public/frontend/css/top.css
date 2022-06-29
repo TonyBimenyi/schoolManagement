@@ -33,9 +33,6 @@
     color: white;
     padding-bottom: 0px;
 }
-.active{
-    border-bottom: 5px solid var(--primary);
-}
 
 .menu_li:hover{
     background-color: var(--active);
