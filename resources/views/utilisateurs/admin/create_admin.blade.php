@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/top.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/table.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}">
-    
+
 </head>
 <div class="container">
   @include('layouts.top_row.utu_top')
@@ -30,6 +30,15 @@
     <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un administrateur</h3>
     <form action="">
         <div class="row">
+            <div class="labels">
+                <label for="">Nom et Prenom</label>
+            </div>
+            <div class="input_group">
+                <div class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="input">
+                    <input type="text" placeholder="Nom et Prenom">
             <div class="input_row">
                 <div class="labels">
                     <label for="">Nom et Prenom</label>
