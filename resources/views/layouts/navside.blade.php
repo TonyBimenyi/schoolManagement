@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="style.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    
+
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('frontend/css/navside.css')}}">
      <style>
-     
+
 
      </style>
    </head>
@@ -28,7 +28,7 @@
           <span class="link_name">Dashboard</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Dashboard</a></li>
+          <li><a class="link_name"  href="#">Dashboard</a></li>
         </ul>
       </li>
       <li>
@@ -40,7 +40,7 @@
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Utilisateurs</a></li>
+          <li><a class="link_name" href="">Utilisateurs</a></li>
           <li><a href="{{url('admin')}}">Admins</a></li>
           <li><a href="#">Etudiants</a></li>
           <li><a href="#">Enseignants</a></li>
@@ -142,7 +142,7 @@
       <i class='bx bx-menu' ></i>
 
       <span class="text">Systeme de Gestion</span>
-     
+
     </div>
     @yield('da')
   </section>
@@ -161,4 +161,20 @@
     sidebar.classList.toggle("close");
   });
   </script>
+
+
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+     var msg = '{{Session::get('alert')}}';
+     var exist = '{{Session::has('alert')}}';
+     if(exist){
+       Swal.fire({
+ icon: 'success',
+ title: msg,
+ showConfirmButton: false,
+ timer: 2500
+})
+     }
+   </script>
+
 </body>

@@ -1,7 +1,7 @@
 
 <div class="header_part">
-    <a href="{{ url('admin') }}">
-    <div class="menu_li active">
+    <a class="" href="{{ url('admin') }}">
+    <div class="menu_li  {{Request::is('admin') ? 'active':''}}">
         <div class="icon">
             <i class="fa-solid fa-user"></i>
         </div>

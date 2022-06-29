@@ -28,7 +28,8 @@
 </div> --}}
 <div class="form">
     <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un administrateur</h3>
-    <form action="">
+    <form action="{{ url('insert_admin') }}" method="POST">
+        @csrf
         <div class="col">
         <div class="row">
             <div class="input_row">
@@ -40,7 +41,7 @@
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Nom et Prenom">
+                        <input name="name" required type="text" placeholder="Nom et Prenom">
                     </div>
                 </div>
             </div>
@@ -53,7 +54,7 @@
                         <i class="fa-solid fa-at"></i>
                     </div>
                     <div class="input">
-                        <input type="text" placeholder="Nom d'utilisateur">
+                        <input name="username" required type="text" placeholder="Nom d'utilisateur">
                     </div>
                 </div>
             </div>
@@ -66,7 +67,7 @@
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <div class="input">
-                        <input type="email" placeholder="exemple@biu.bi">
+                        <input name="email" required type="email" placeholder="exemple@biu.bi">
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <div class="input">
-                            <input type="password" placeholder="*******************">
+                            <input name="password" required type="password" placeholder="*******************">
                         </div>
                     </div>
                 </div>
@@ -96,10 +97,10 @@
                             <i class="fa-brands fa-gg-circle"></i>
                         </div>
                         <div class="select">
-                            <select name="" id="">
+                            <select required name="role" id="">
                                 <option value="" disabled>--Selectionner le role---</option>
-                                <option value="">Super Admin</option>
-                                <option value="">Admin</option>
+                                <option value="Super Admin">Super Admin</option>
+                                <option value="Admin">Admin</option>
                             </select>
                         </div>
                     </div>
@@ -108,7 +109,7 @@
             </div>
         </div>
         <div class="button">
-            <button>Ajouter</button>
+            <button type="submit">Ajouter</button>
         </div>
     </form>
 
