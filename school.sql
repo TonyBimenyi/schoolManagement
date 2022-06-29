@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2022 at 02:58 PM
+-- Generation Time: Jun 29, 2022 at 09:12 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -50,15 +50,19 @@ CREATE TABLE `enseignants` (
   `telephone_ens` varchar(255) NOT NULL,
   `email_ens` varchar(255) NOT NULL,
   `adress_ens` varchar(255) NOT NULL,
-  `sexe_ens` varchar(20) NOT NULL
+  `sexe_ens` varchar(20) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `enseignants`
 --
 
-INSERT INTO `enseignants` (`id_ens`, `nom_ens`, `prenom_ens`, `telephone_ens`, `email_ens`, `adress_ens`, `sexe_ens`) VALUES
-(1, 'Shikaneza', 'Alain', '79999234', '', 'Kigobe', 'Homme');
+INSERT INTO `enseignants` (`id_ens`, `nom_ens`, `prenom_ens`, `telephone_ens`, `email_ens`, `adress_ens`, `sexe_ens`, `created_at`, `updated_at`) VALUES
+(1, 'Shikaneza', 'Alain', '79999234', '', 'Kigobe', 'Homme', '0000-00-00 00:00:00', ''),
+(2, 'BImenyimana', 'Tony Blaise', '69543122', 'bito@biu.bi', 'gihosha', 'homme', '2022-06-29 16:38:01', ''),
+(3, 'Tuyishimire', 'Noella', '68899054', 'tuno@biu.bi', 'gasenyi', 'femme', '2022-06-29 16:47:43', '2022-06-29 18:47:43');
 
 -- --------------------------------------------------------
 
@@ -71,6 +75,7 @@ CREATE TABLE `etudiants` (
   `nom_etu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prenom_etu` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_naiss` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_etu` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `adress_etu` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `telephone_etu` int(11) NOT NULL,
   `promotion` int(11) NOT NULL,
@@ -246,6 +251,7 @@ INSERT INTO `specialisations` (`id_spec`, `nom_spec`, `id_fac`, `created_at`, `u
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(155) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -260,10 +266,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `etat`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Yvan Igor', 'bito@biu.bi', NULL, '$2y$10$/30eqMl/B0ufyiU1lfE0WOB/xLMJ1/erYpym9D5/pw/74Vj1EYfAG', 'super admin', 1, NULL, '2022-06-22 19:23:05', '2022-06-22 19:23:05'),
-(2, 'Bruce', 'bruce@biu.bi', NULL, 'bujumbura', 'super admin', 1, NULL, NULL, NULL),
-(3, 'TonyTresor', 'tony@biu.bi', NULL, 'bujumbura', 'admin\r\n', 0, NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `password`, `role`, `etat`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Yvan Igor', '', 'bito@biu.bi', NULL, '$2y$10$/30eqMl/B0ufyiU1lfE0WOB/xLMJ1/erYpym9D5/pw/74Vj1EYfAG', 'super admin', 1, NULL, '2022-06-22 19:23:05', '2022-06-22 19:23:05'),
+(2, 'Bruce', '', 'bruce@biu.bi', NULL, 'bujumbura', 'super admin', 1, NULL, NULL, NULL),
+(3, 'TonyTresor', '', 'tony@biu.bi', NULL, 'bujumbura', 'admin\r\n', 0, NULL, NULL, NULL),
+(4, 'Manimpa Tony Tresor', 'Tresor', 'mato@biu.bi', NULL, '$2y$10$.WAY2qrsGaSU3HFN3tvqnO9TzMTxzFwV4GSmC./.pC3zoYofA/38y', 'Super Admin', 0, NULL, '2022-06-29 19:52:12', '2022-06-29 19:52:12'),
+(8, 'cunyr@mailinator.com', 'gawol', 'geqyker@mailinator.com', NULL, '$2y$10$TJiK0VHzHmyfXQ1n7QIwzO.vpHKA3v5Gj8RWYaLO9S0tZA3rXl0w6', 'Admin', 0, NULL, '2022-06-29 19:58:38', '2022-06-29 19:58:38');
 
 --
 -- Indexes for dumped tables
@@ -364,7 +372,7 @@ ALTER TABLE `cours`
 -- AUTO_INCREMENT for table `enseignants`
 --
 ALTER TABLE `enseignants`
-  MODIFY `id_ens` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_ens` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `etudiants`
@@ -418,7 +426,7 @@ ALTER TABLE `specialisations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
