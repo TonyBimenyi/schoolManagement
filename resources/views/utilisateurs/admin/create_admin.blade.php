@@ -70,36 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="input_row">
-                <div class="labels">
-                    <label for="">Sexe</label>
-                </div>
-                <div class="input_group">
-                    <div class="icon">
-                        <i class="fa-solid fa-mars-and-venus"></i>
-                    </div>
-                    <div class="select">
-                        <select name="" id="">
-                            <option value="" disabled>--Selection le sexe---</option>
-                            <option value="">Homme</option>
-                            <option value="">Femme</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="input_row">
-                <div class="labels">
-                    <label for="">Telephone</label>
-                </div>
-                <div class="input_group">
-                    <div class="icon">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <div class="input">
-                        <input type="number" placeholder="+257 76 78 76">
-                    </div>
-                </div>
-            </div>
+
         </div>
 
             <div class="row">
@@ -133,19 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="input_row">
-                    <div class="labels">
-                        <label for="">Email</label>
-                    </div>
-                    <div class="input_group">
-                        <div class="icon">
-                            <i class="fa-solid fa-calendar-days"></i>
-                        </div>
-                        <div class="input_date">
-                            <input class="date" type="date" placeholder="sdi">
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="button">
