@@ -94,7 +94,7 @@
                             <i class="fa-solid fa-mars-and-venus"></i>
                         </div>
                         <div class="select">
-                            <select name="sexe" id="">
+                            <select name="sexe" required>
                                 <option value="" disabled>--Selection le sexe---</option>
                                 <option value="homme">Homme</option>
                                 <option value="femme">Femme</option>
