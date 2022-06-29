@@ -14,7 +14,7 @@
   @include('layouts.second_row.tea')
   <div class="form">
     <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un enseignant</h3>
-    <form method="POST" action="{{ url('insert_teacher') }}">
+    <form action="{{ url('insert_teacher') }}" method="POST">
         <div class="col">
             <div class="row">
                 <div class="input_row">
@@ -65,10 +65,10 @@
                         </div>
                         <div class="input_group">
                             <div class="icon">
-                                <i class="fa-solid fa-calendar-days"></i>
+                                <i class="fa-solid fa-envelope"></i>
                             </div>
-                            <div class="input_date">
-                                <input class="date" type="date" placeholder="sdi" name="mail" required>
+                            <div class="input">
+                                <input name="email" required type="email" name="mail" placeholder="exemple@biu.bi">
                             </div>
                         </div>
                     </div>

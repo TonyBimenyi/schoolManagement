@@ -22,11 +22,20 @@ Auth::routes();
 Route::middleware(['auth',])->group(function(){
     Route::get('/','App\Http\Controllers\DashboardController@login');
     Route::get('dashboard','App\Http\Controllers\DashboardController@index');
+    // START ADMIN
     Route::get('admin','App\Http\Controllers\AdminController@list_admin');
     Route::get('create_admin','App\Http\Controllers\AdminController@create_admin');
+    Route::post('insert_admin','App\Http\Controllers\AdminController@insert_admin');
+    // END ADMIN
+
+    // START STUDENT
     Route::get('create_student','App\Http\Controllers\StudentController@create_student');
+    // END STUDENT
+
+    // START TEACHER
     Route::get('teacher','App\Http\Controllers\TeacherController@list_teacher');
     Route::get('create_teacher','App\Http\Controllers\TeacherController@create_teacher');
     Route::post('insert_teacher','App\Http\Controllers\TeacherController@insert_teacher');
+    // END TEACHER
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

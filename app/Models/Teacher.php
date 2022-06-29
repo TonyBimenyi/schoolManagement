@@ -13,6 +13,7 @@ class Teacher extends Model
         'nom_ens',
         'prenom_ens',
         'telephone_ens',
+        'email_ens',
         'adress_ens',
         'sexe_ens'
     ];
