@@ -16,5 +16,9 @@ class AdminController extends Controller
     {
         return view('utilisateurs.admin.create_admin');
     }
+    public function insert_admin(Request $request)
+    {
+        
+    }
 }
 
