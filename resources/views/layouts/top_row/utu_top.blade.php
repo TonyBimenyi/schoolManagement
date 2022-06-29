@@ -10,7 +10,7 @@
         </div>
     </div>
 </a>
-    <a href="#">
+    <a href="{{ url('student') }}">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-graduation-cap"></i>
