@@ -25,5 +25,6 @@ Route::middleware(['auth',])->group(function(){
     Route::get('admin','App\Http\Controllers\AdminController@list_admin');
     Route::get('create_admin','App\Http\Controllers\AdminController@create_admin');
     Route::get('create_student','App\Http\Controllers\StudentController@create_student');
+    Route::get('teacher','App\Http\Controllers\TeacherController@list_teacher');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
