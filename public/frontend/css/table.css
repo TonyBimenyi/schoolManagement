@@ -44,7 +44,7 @@ tbody tr{
     margin-top: 20px;
     width: 95%;
 }
-#edit{
+.edit{
     background-color: var(--primary);
     border: none;
     padding: 03px 10px;
