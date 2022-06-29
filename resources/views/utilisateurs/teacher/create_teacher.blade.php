@@ -15,6 +15,7 @@
   <div class="form">
     <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un enseignant</h3>
     <form action="{{ url('insert_teacher') }}" method="POST">
+       @csrf
         <div class="col">
             <div class="row">
                 <div class="input_row">
@@ -68,7 +69,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="input">
-                                <input name="email" required type="email" name="mail" placeholder="exemple@biu.bi">
+                                <input  required type="email" name="mail" placeholder="exemple@biu.bi">
                             </div>
                         </div>
                     </div>

@@ -19,14 +19,14 @@ class TeacherController extends Controller
     public function insert_teacher(Request $request)
     {
         $teacher=new Teacher();
-        $teacher->nom=$request->input('nom');
-        $teacher->prenom=$request->input('prenom');
-        $teacher->phone=$request->input('phone');
-        $teacher->mail=$request->input('mail');
-        $teacher->adresse=$request->input('adresse');
-        $teacher->sexe=$request->input('sexe');
+        $teacher->nom_ens=$request->input('nom');
+        $teacher->prenom_ens=$request->input('prenom');
+        $teacher->telephone_ens=$request->input('phone');
+        $teacher->email_ens=$request->input('mail');
+        $teacher->adress_ens=$request->input('adresse');
+        $teacher->sexe_ens=$request->input('sexe');
         $teacher->save();
-        return redirect('teacher')->with('alert',"Teacher added successfully");
+        return redirect('teacher')->with('alert',"Teacher added successfully");;
 
     }
 }
