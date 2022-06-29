@@ -1,4 +1,6 @@
+
 <div class="header_part">
+    <a href="#">
     <div class="menu_li active">
         <div class="icon">
             <i class="fa-solid fa-user"></i>
@@ -7,6 +9,8 @@
             <p>ADMINS</p>
         </div>
     </div>
+</a>
+    <a href="#">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-graduation-cap"></i>
@@ -16,6 +20,8 @@
             <p>ETUDIANTS</p>
         </div>
     </div>
+</a>
+    <a href="{{ url('teacher') }}">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-people-group"></i>
@@ -24,6 +30,8 @@
             <p>ENSEIGNANTS</p>
         </div>
     </div>
+</a>
+<a href="#">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-clipboard-user"></i>
@@ -32,4 +40,5 @@
             <p>STAFF</p>
         </div>
     </div> 
+    </a>
 </div>

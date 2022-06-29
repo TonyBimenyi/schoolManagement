@@ -23,32 +23,29 @@
                     <thead>
                         <tr>
                             <th>#ID</th>
-                            <th>USERNAME</th>
-                            <th>EMAIL</th>
-                            <th>ROLE</th>
-                            <th>STATUT</th>
-                            <th colspan="2">OPTIONS</th>
+                            <th>NOM</th>
+                            <th>PRENOM</th>
+                            <th>TELEPHONE</th>
+                            <th>ADDRESSE</th>
+                            <th>SEXE</th>
+                            <th colspan="3">OPTIONS</th>
                         
                         </tr>
                     </thead>
                     <tbody>
-                                 
+                               @foreach ($enseignant as $ens)
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td> <button id="role"></button></td>
-                                <td> <button id="etat"> Desactiver</button> <br>
-                                    {{-- @if ($utilisateur->etat==0) --}}
-                                         {{-- <small style="color: red;font-weight:700;">Etat:Inactive</small> --}}
-                                    {{-- @else --}}
-                                    <small style="color: green;font-weight:700"> Etat:Active </small>
-                                    {{-- @endif --}}
-                                       
-                                </td>
-                                <td id="btn"> <button  id="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
+                                <td>{{ $ens->id_ens }}</td>
+                                <td>{{ $ens->nom_ens }}</td>
+                                <td>{{ $ens->prenom_ens }}</td>
+                                <td>{{ $ens->telephone_ens }}</td>
+                                <td>{{ $ens->adress_ens }}</td>
+                                <td>{{ $ens->sexe_ens }}</td>
+                                <td><button class="edit">Details</button></td>
+                                <td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
                                 <td> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></td>
-                            </tr>                       
+                            </tr>   
+                            @endforeach                     
                     </tbody>
                 </table>
             </div>
