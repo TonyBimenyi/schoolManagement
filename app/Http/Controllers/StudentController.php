@@ -17,12 +17,10 @@ class StudentController extends Controller
     }
     public function getState(Request $request)
     {
-        $cid= $request->input('cid');
-        $state = Specialisation ::select(DB::raw('specialisations.nom_spec'))
-        ->join('facultes','specialisations.id_fac','=','facultes.id_fac')
-        // ->where('specialisations.id_fac',$cid)
+        $cid= $request->post('cid');
+        $state=DB::table('specialisations')->where('id_fac',$cid)
         ->get();
-                $html='<option value="">Select Specialisation</option>';
+                $html='<option value="" disabled>Select Specialisation</option>';
         foreach($state as $list){
           $html.= '<option value="'.$list->id_spec.'">'.$list->nom_spec.'</option>';
          }

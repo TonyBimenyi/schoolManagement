@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="select">
                                     <select name="" id="state">
-                                        <option value="" disabled>--Selectionner la spec---</option>
+                                        <option value="" disabled>--La faculte d'abord---</option>
 
                                     </select>
                                 </div>
