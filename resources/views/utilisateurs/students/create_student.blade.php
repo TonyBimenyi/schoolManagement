@@ -17,8 +17,117 @@
         @include('layouts.second_row.student')
         <div class="form">
             <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un étudiant</h3>
-            <form action="">
+            <form action="{{ url('insert_student') }}" method="POST">
+                @csrf
+                <div style="" class="titre">
+                    <h3 style="text-align: center;margin-top:20px;">1. Informations Generales</h3>
+                </div>
                 <div class="col">
+                    <div class="row">
+                        <div class="input_row">
+                            <div class="labels">
+                                <label for="">Annee Academique</label>
+                            </div>
+
+                        </div>
+                        <div class="input_row">
+                            <div class="input_group">
+                                <div class="icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </div>
+                                <div class="select">
+                                    <select name="annee_aca" id="">
+                                        <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
+                                        <option value="2021-2022">2021-2022</option>
+                                        <option value="2022-2023">2022-2023</option>
+                                        <option value="2023-2024">2023-2024</option>
+                                        <option value="2024-2025">2024-2025</option>
+                                        <option value="2025-2026">2025-2026</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input_row">
+                            <div class="labels">
+                                <label for="">Promotion</label>
+                            </div>
+                            <div class="input_group">
+                                <div class="icon">
+                                    <i class="fa-brands fa-buromobelexperte"></i>
+                                </div>
+                                <div class="input">
+                                    <input name="promotion" min="0"  type="number" placeholder="07">
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input_row">
+                                <div class="labels">
+                                    <label for="">Faculte</label>
+                                </div>
+                                <div class="input_group">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-book"></i>
+                                    </div>
+                                    <div class="select">
+                                        <select class="fac" name="faculte" id="country">
+                                            <option value="" selected="true" disabled="true">--Selectionner la faculte---</option>
+                                            @foreach ($faculte as $fac)
+                                                <option value="{{ $fac->id_fac }}">{{ $fac->nom_fac }}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input_row">
+                                <div class="labels">
+                                    <label for="">Specialisation</label>
+                                </div>
+                                <div class="input_group">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-book"></i>
+                                    </div>
+                                    <div class="select">
+                                        <select name="specialisation" id="state">
+                                            <option value="" disabled>--La faculte d'abord---</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input_row">
+                                <div class="labels">
+                                    <label for="">Classe</label>
+                                </div>
+
+                            </div>
+                            <div class="input_row">
+                                <div class="input_group">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-calendar-days"></i>
+                                    </div>
+                                    <div class="select">
+                                        <select name="classe" id="">
+                                            <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
+                                            <option value="BAC I">BAC I</option>
+                                            <option value="BAC II">BAC II</option>
+                                            <option value="BAC III">BAC III</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                <div style="" class="titre">
+                    <h3 style="text-align: center;margin-top:20px;">2. Informations Personnelles</h3>
+                </div>
+            <div class="col">
                 <div class="row">
                     <div class="input_row">
                         <div class="labels">
@@ -72,20 +181,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="input_row">
-                        <div class="labels">
-                            <label for="">Adresse</label>
-                        </div>
-                        <div class="input_group">
-                            <div class="icon">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                            <div class="input">
-                                <input name="address" type="text" placeholder="Kigobe...">
-                            </div>
-                        </div>
+
                     </div>
-                </div>
 
                     <div class="row">
                         <div class="input_row">
@@ -103,19 +200,6 @@
                         </div>
                         <div class="input_row">
                             <div class="labels">
-                                <label for="">Promotion</label>
-                            </div>
-                            <div class="input_group">
-                                <div class="icon">
-                                    <i class="fa-brands fa-buromobelexperte"></i>
-                                </div>
-                                <div class="input">
-                                    <input name="promotion" type="number" placeholder="07">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="input_row">
-                            <div class="labels">
                                 <label for="">Sexe</label>
                             </div>
                             <div class="input_group">
@@ -125,43 +209,38 @@
                                 <div class="select">
                                     <select name="sexe" id="">
                                         <option value="" disabled>--Selection le sexe---</option>
-                                        <option value="">Homme</option>
-                                        <option value="">Femme</option>
+                                        <option value="Homme">Homme</option>
+                                        <option value="Femme">Femme</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="input_row">
                             <div class="labels">
-                                <label for="">Faculte</label>
+                                <label for="">Adresse</label>
                             </div>
                             <div class="input_group">
                                 <div class="icon">
-                                    <i class="fa-solid fa-book"></i>
+                                    <i class="fa-solid fa-user"></i>
                                 </div>
-                                <div class="select">
-                                    <select class="fac" name="fac" id="country">
-                                        <option value="" selected="true" disabled="true">--Selectionner la faculte---</option>
-                                        @foreach ($faculte as $fac)
-                                            <option value="{{ $fac->id_fac }}">{{ $fac->nom_fac }}</option>
-                                        @endforeach
-                                    </select>
-
+                                <div class="input">
+                                    <input name="address" type="text" placeholder="Kigobe...">
                                 </div>
                             </div>
                         </div>
                         <div class="input_row">
                             <div class="labels">
-                                <label for="">Specialisation</label>
+                                <label for="">Etat Civil</label>
                             </div>
                             <div class="input_group">
                                 <div class="icon">
-                                    <i class="fa-solid fa-book"></i>
+                                    <i class="fa-solid fa-mars-and-venus"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="" id="state">
-                                        <option value="" disabled>--La faculte d'abord---</option>
-
+                                    <select name="etat" id="">
+                                        <option value="" selected="true" disabled>--Selection votre etat---</option>
+                                        <option value="Celibataire">Celibataire</option>
+                                        <option value="Marie">Marie</option>
                                     </select>
                                 </div>
                             </div>
