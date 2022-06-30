@@ -26,4 +26,8 @@ class StudentController extends Controller
          }
     echo $html;
     }
+    public function insert_student()
+    {
+        # code...
+    }
 }
