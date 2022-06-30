@@ -40,5 +40,11 @@ Route::middleware(['auth',])->group(function(){
     Route::get('create_teacher','App\Http\Controllers\TeacherController@create_teacher');
     Route::post('insert_teacher','App\Http\Controllers\TeacherController@insert_teacher');
     // END TEACHER
+
+    // START PERSONNEL
+    Route::get('personnel','App\Http\Controllers\PersonnelController@list_personnel');
+
+
+    // END PERSONNEL
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -31,7 +31,7 @@
         </div>
     </div>
 </a>
-<a href="#">
+<a href="{{ url('personnel') }}">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-clipboard-user"></i>
