@@ -45,6 +45,9 @@ Route::middleware(['auth',])->group(function(){
     Route::get('personnel','App\Http\Controllers\PersonnelController@list_personnel');
     Route::get('create_personnel','App\Http\Controllers\PersonnelController@create_personnel');
     Route::post('insert_personnel','App\Http\Controllers\PersonnelController@insert_personnel');
+    Route::get('edit_personnel/{id}','App\Http\Controllers\PersonnelController@edit_personnel');
+    Route::put('update_personnel/{id}','App\Http\Controllers\PersonnelController@update_personnel');
+    Route::get('delete_personnel/{id}','App\Http\Controllers\PersonnelController@delete_personnel');
     // END PERSONNEL
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

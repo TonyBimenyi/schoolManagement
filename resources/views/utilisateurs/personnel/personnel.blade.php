@@ -45,8 +45,9 @@
                                 <td>{{ $pers->email }}</td>
                                 <td> {{ $pers->fonction }}</td>
                                 <td>{{ $pers->salaire }}</td>
-                                <td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
-                                <td> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></td>
+                                {{-- <td id="btn"> <button  class="edit" href="{{ url('edit_personnel/'.$pers->id_personnel) }}"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td> --}}
+                                <td id="btn"><a href="{{ url('edit_personnel/'.$pers->id_personnel) }}" class="edit"><i class="fa-solid fa-pen-to-square"></i>  Modifier</a></td>
+                                <td> <a href="{{ url('delete_personnel/'.$pers->id_personnel) }}"  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</a></td>
                             </tr>    
                             @endforeach                   
                     </tbody>
