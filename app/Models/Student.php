@@ -12,8 +12,15 @@ class Student extends Model
     protected $fillable = [
         'nom_etu',
         'prenom_etu',
-        'role',
-        'password',
-        'etat'
+        'date_naiss',
+        'email_etu',
+        'adress_etu',
+        'telephone_etu',
+        'promotion',
+        'sexe_etu',
+        'fac_etu',
+        'spec_etu',
+        'classe',
+        'annee_academique'
     ];
 }

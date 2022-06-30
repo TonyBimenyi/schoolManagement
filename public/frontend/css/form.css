@@ -92,3 +92,8 @@ form{
     background-color: var(--hover);
     transition:ease-in .3s;
 }
+.titre h3{
+    background-color: var(--primary);
+    color: white;
+    padding: 5px 0;
+}

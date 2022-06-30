@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 07:28 PM
+-- Generation Time: Jun 30, 2022 at 10:48 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -80,10 +80,20 @@ CREATE TABLE `etudiants` (
   `telephone_etu` int(11) NOT NULL,
   `promotion` int(11) NOT NULL,
   `sexe_etu` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_fac` int(11) NOT NULL,
   `id_spec` int(11) NOT NULL,
+  `classe` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `annee_academique` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `etudiants`
+--
+
+INSERT INTO `etudiants` (`id_etu`, `nom_etu`, `prenom_etu`, `date_naiss`, `email_etu`, `adress_etu`, `telephone_etu`, `promotion`, `sexe_etu`, `id_fac`, `id_spec`, `classe`, `annee_academique`, `created_at`, `updated_at`) VALUES
+(1, 'Irakoze', 'Christ', '1996-04-24', 'ira@biu.bi', 'Kinindo', 76161970, 7, 'Homme', 1, 6, 'BAC II', '2021-2022', '2022-07-01 03:45:45', '2022-07-01 03:45:45');
 
 -- --------------------------------------------------------
 
@@ -208,6 +218,30 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `personnel`
+--
+
+CREATE TABLE `personnel` (
+  `id_personnel` int(11) NOT NULL,
+  `nom_personnel` varchar(255) NOT NULL,
+  `prenom_personnel` varchar(255) NOT NULL,
+  `telephone_personnel` varchar(255) NOT NULL,
+  `sexe` varchar(20) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `fonction` varchar(255) NOT NULL,
+  `salaire` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `personnel`
+--
+
+INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `telephone_personnel`, `sexe`, `email`, `fonction`, `salaire`) VALUES
+(1, 'Nishimwe', 'Alain Bruce', '79800653', 'M', 'brucart@biu.bi', 'Secretaire', 100000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `specialisations`
 --
 
@@ -226,7 +260,9 @@ CREATE TABLE `specialisations` (
 INSERT INTO `specialisations` (`id_spec`, `nom_spec`, `id_fac`, `created_at`, `updated_at`) VALUES
 (4, 'Genie Logiciel', 2, NULL, NULL),
 (5, 'Reseau et Telecom', 2, NULL, NULL),
-(6, 'Logistic', 1, NULL, NULL);
+(6, 'Regional integration and International Trade', 1, NULL, NULL),
+(9, 'Procurement and Logistics management', 1, NULL, NULL),
+(10, 'Non Governmental Organization Management', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -282,7 +318,8 @@ ALTER TABLE `enseignants`
 --
 ALTER TABLE `etudiants`
   ADD PRIMARY KEY (`id_etu`),
-  ADD KEY `etudiants_ibfk_1` (`id_spec`);
+  ADD KEY `id_fac` (`id_fac`),
+  ADD KEY `id_spec` (`id_spec`);
 
 --
 -- Indexes for table `facultes`
@@ -326,6 +363,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `personnel`
+--
+ALTER TABLE `personnel`
+  ADD PRIMARY KEY (`id_personnel`);
+
+--
 -- Indexes for table `specialisations`
 --
 ALTER TABLE `specialisations`
@@ -359,7 +402,7 @@ ALTER TABLE `enseignants`
 -- AUTO_INCREMENT for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  MODIFY `id_etu` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_etu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `facultes`
@@ -392,10 +435,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `personnel`
+--
+ALTER TABLE `personnel`
+  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `specialisations`
 --
 ALTER TABLE `specialisations`
-  MODIFY `id_spec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_spec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -418,14 +467,15 @@ ALTER TABLE `cours`
 -- Constraints for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  ADD CONSTRAINT `etudiants_ibfk_1` FOREIGN KEY (`id_spec`) REFERENCES `specialisations` (`id_spec`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `etudiants_ibfk_1` FOREIGN KEY (`id_fac`) REFERENCES `facultes` (`id_fac`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `etudiants_ibfk_2` FOREIGN KEY (`id_spec`) REFERENCES `specialisations` (`id_spec`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `notes`
 --
 ALTER TABLE `notes`
-  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`id_etu`) REFERENCES `etudiants` (`id_etu`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`id_cours`) REFERENCES `cours` (`id_cours`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`id_cours`) REFERENCES `cours` (`id_cours`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notes_ibfk_3` FOREIGN KEY (`id_etu`) REFERENCES `etudiants` (`id_etu`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `specialisations`
