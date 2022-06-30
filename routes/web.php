@@ -43,8 +43,8 @@ Route::middleware(['auth',])->group(function(){
 
     // START PERSONNEL
     Route::get('personnel','App\Http\Controllers\PersonnelController@list_personnel');
-
-
+    Route::get('create_personnel','App\Http\Controllers\PersonnelController@create_personnel');
+    Route::post('insert_personnel','App\Http\Controllers\PersonnelController@insert_personnel');
     // END PERSONNEL
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
