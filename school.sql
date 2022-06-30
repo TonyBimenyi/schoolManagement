@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 10:19 AM
+-- Generation Time: Jun 30, 2022 at 07:28 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -102,7 +102,7 @@ CREATE TABLE `facultes` (
 
 INSERT INTO `facultes` (`id_fac`, `nom_fac`) VALUES
 (1, 'Business and Administration'),
-(2, 'Science and Technology');
+(2, 'Science and Technology\r\n');
 
 -- --------------------------------------------------------
 
@@ -208,30 +208,6 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personnel`
---
-
-CREATE TABLE `personnel` (
-  `id_personnel` int(11) NOT NULL,
-  `nom_personnel` varchar(255) NOT NULL,
-  `prenom_personnel` varchar(255) NOT NULL,
-  `telephone_personnel` varchar(255) NOT NULL,
-  `sexe` varchar(20) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `fonction` varchar(255) NOT NULL,
-  `salaire` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `personnel`
---
-
-INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `telephone_personnel`, `sexe`, `email`, `fonction`, `salaire`) VALUES
-(1, 'Nishimwe', 'Alain Bruce', '79800653', 'M', 'brucart@biu.bi', 'Secretaire', 100000);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `specialisations`
 --
 
@@ -248,7 +224,9 @@ CREATE TABLE `specialisations` (
 --
 
 INSERT INTO `specialisations` (`id_spec`, `nom_spec`, `id_fac`, `created_at`, `updated_at`) VALUES
-(1, '', 0, '2022-06-21 21:48:37', '2022-06-21 21:48:37');
+(4, 'Genie Logiciel', 2, NULL, NULL),
+(5, 'Reseau et Telecom', 2, NULL, NULL),
+(6, 'Logistic', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -348,16 +326,11 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `personnel`
---
-ALTER TABLE `personnel`
-  ADD PRIMARY KEY (`id_personnel`);
-
---
 -- Indexes for table `specialisations`
 --
 ALTER TABLE `specialisations`
-  ADD PRIMARY KEY (`id_spec`);
+  ADD PRIMARY KEY (`id_spec`),
+  ADD KEY `id_fac` (`id_fac`);
 
 --
 -- Indexes for table `users`
@@ -419,16 +392,10 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `personnel`
---
-ALTER TABLE `personnel`
-  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `specialisations`
 --
 ALTER TABLE `specialisations`
-  MODIFY `id_spec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_spec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -459,6 +426,12 @@ ALTER TABLE `etudiants`
 ALTER TABLE `notes`
   ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`id_etu`) REFERENCES `etudiants` (`id_etu`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`id_cours`) REFERENCES `cours` (`id_cours`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `specialisations`
+--
+ALTER TABLE `specialisations`
+  ADD CONSTRAINT `specialisations_ibfk_1` FOREIGN KEY (`id_fac`) REFERENCES `facultes` (`id_fac`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
