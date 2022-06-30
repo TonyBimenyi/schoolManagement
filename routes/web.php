@@ -22,6 +22,8 @@ Auth::routes();
 Route::middleware(['auth',])->group(function(){
     Route::get('/','App\Http\Controllers\DashboardController@login');
     Route::get('dashboard','App\Http\Controllers\DashboardController@index');
+    Route::get('/findProductName','App\Http\Controllers\DashboardController@findProductName');
+    Route::post('/getState','App\Http\Controllers\StudentController@getState');
     // START ADMIN
     Route::get('admin','App\Http\Controllers\AdminController@list_admin');
     Route::get('create_admin','App\Http\Controllers\AdminController@create_admin');
