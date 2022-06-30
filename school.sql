@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2022 at 09:12 PM
+-- Generation Time: Jun 30, 2022 at 10:19 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -217,9 +217,17 @@ CREATE TABLE `personnel` (
   `prenom_personnel` varchar(255) NOT NULL,
   `telephone_personnel` varchar(255) NOT NULL,
   `sexe` varchar(20) NOT NULL,
+  `email` varchar(200) NOT NULL,
   `fonction` varchar(255) NOT NULL,
   `salaire` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `personnel`
+--
+
+INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `telephone_personnel`, `sexe`, `email`, `fonction`, `salaire`) VALUES
+(1, 'Nishimwe', 'Alain Bruce', '79800653', 'M', 'brucart@biu.bi', 'Secretaire', 100000);
 
 -- --------------------------------------------------------
 
@@ -414,7 +422,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `personnel`
 --
 ALTER TABLE `personnel`
-  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `specialisations`
