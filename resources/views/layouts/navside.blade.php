@@ -49,15 +49,15 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="{{ url('cours') }}">
             <i class='bx bx-book-alt' ></i>
             <span class="link_name">Cours</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Cours</a></li>
-          <li><a href="#">Liste des Cours</a></li>
+          <li><a class="link_name" href="{{ url('cours') }}">Cours</a></li>
+          <li><a href="{{ url('cours') }}">Liste des Cours</a></li>
           <li><a href="#">Nouveau Cours</a></li>
           <li><a href="#">Card Design</a></li>
         </ul>

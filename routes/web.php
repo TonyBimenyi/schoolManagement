@@ -56,5 +56,12 @@ Route::middleware(['auth',])->group(function(){
     Route::put('update_personnel/{id}','App\Http\Controllers\PersonnelController@update_personnel');
     Route::get('delete_personnel/{id}','App\Http\Controllers\PersonnelController@delete_personnel');
     // END PERSONNEL
+
+    // START COURS
+    Route::get('cours','App\Http\Controllers\CoursController@list_cours');
+    Route::get('create_cours','App\Http\Controllers\CoursController@create_cours');
+
+
+    // END COURS
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
