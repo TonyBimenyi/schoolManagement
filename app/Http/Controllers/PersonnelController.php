@@ -38,7 +38,7 @@ class PersonnelController extends Controller
         $admin->role=$request->input('fonction');
         $admin->etat='1';
         $admin->save();
-        return redirect('personnel')->with('alert',"Personnel added successfully");
+        return redirect('personnel')->with('alert',"Personnel ajouté avec Succès");
     }
     public function edit_personnel($id)
     {
@@ -77,12 +77,12 @@ class PersonnelController extends Controller
         // $admin->role=$request->input('fonction');
         // $admin->etat='1';
         // $admin->update();
-        return redirect('personnel')->with('alert',"Personnel modified successfully");
+        return redirect('personnel')->with('alert',"Personnel a été mofifié");
     }
     public function delete_personnel($id)
     {
         $personnel=Personnel::where('id_personnel',$id)->delete();
         // $personnel->delete();
-        return redirect('personnel')->with('alert',"Personnel deleted successfully");
+        return redirect('personnel')->with('alert',"Personnel a été supprimé");
     }
 }

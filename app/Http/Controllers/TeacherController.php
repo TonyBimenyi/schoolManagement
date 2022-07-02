@@ -27,7 +27,7 @@ class TeacherController extends Controller
         $teacher->adress_ens=$request->input('adresse');
         $teacher->sexe_ens=$request->input('sexe');
         $teacher->save();
-        return redirect('teacher')->with('alert',"Teacher added successfully");;
+        return redirect('teacher')->with('alert',"Enseignant ajoutée avec succès");;
 
     }
     public function edit_teacher($id)
@@ -48,12 +48,12 @@ class TeacherController extends Controller
                     'sexe_ens'=>$request->input('sexe')
                     ]
     );
-    return redirect('teacher')->with('alert',"Teacher modified successfully");
+    return redirect('teacher')->with('alert',"Enseignant a été modifié");
     }
     public function delete_teacher($id)
     {
         $teacher=Teacher::where('id_ens',$id)->delete();
 
-        return redirect('teacher')->with('alert',"Teacher deleted successfully");
+        return redirect('teacher')->with('alert',"Enseignant a été supprimé");
     }
 }
