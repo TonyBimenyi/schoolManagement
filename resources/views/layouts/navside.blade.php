@@ -63,12 +63,12 @@
         </ul>
       </li>
       <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Analytics</span>
+        <a href="{{ url('info_etudiant') }}">
+            <i class="fa-solid fa-graduation-cap"></i>
+          <span class="link_name">Info Etudiants</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
+          <li><a class="link_name" href="{{ url('info_etudiant') }}">Info Etudiants</a></li>
         </ul>
       </li>
       <li>
