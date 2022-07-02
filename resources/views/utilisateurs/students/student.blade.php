@@ -49,7 +49,7 @@
                                 <td>{{ $stu->classe }}</td>
                                 <td id="btn"><a href="{{ url('edit_student/'.$stu->id_etu) }}"> <button  class="edit"><i class="fa-solid fa-file-lines"></i> Attestation</button></a></td>
                                 <td id="btn"><a href="{{ url('edit_student/'.$stu->id_etu) }}">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
-                                <td> <button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></td>
+                                <td> <a href="{{ url('delete_student/'.$stu->id_etu) }}"><button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></a></td>
                             </tr>
 
                         @endforeach

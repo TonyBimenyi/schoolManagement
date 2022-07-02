@@ -17,7 +17,8 @@
         @include('layouts.second_row.student')
         <div class="form">
             <h3 style="margin:10px 35px;color:var(--primary)">Modifier les informations de {{ $student->nom_etu }} {{ $student->prenom_etu }}</h3>
-            <form action="{{ url('insert_student') }}" method="POST">
+            <form action="{{ url('update_student/'.$student->id_etu) }}" method="POST">
+                @method('PUT')
                 @csrf
                 <div style="" class="titre">
                     <h3 style="text-align: center;margin-top:20px;">1. Informations Generales</h3>
@@ -36,8 +37,8 @@
                                     <i class="fa-solid fa-calendar-days"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="annee_aca" id="">
-                                        <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
+                                    <select required  name="annee_aca" id="">
+                                        <option value="{{ $student->annee_academique }}" disabled selected="true">{{ $student->annee_academique }}</option>
                                         <option value="2021-2022">2021-2022</option>
                                         <option value="2022-2023">2022-2023</option>
                                         <option value="2023-2024">2023-2024</option>
@@ -56,7 +57,7 @@
                                     <i class="fa-brands fa-buromobelexperte"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="promotion" min="0" value="{{ $student->promotion }}"  type="number" placeholder="07">
+                                    <input name="promotion" required min="0" value="{{ $student->promotion }}"  type="number" placeholder="07">
                                 </div>
                             </div>
                         </div>
@@ -73,8 +74,8 @@
                                         <i class="fa-solid fa-book"></i>
                                     </div>
                                     <div class="select">
-                                        <select class="fac" name="faculte" id="country">
-                                            <option value="" selected="true" disabled="true">--Selectionner la faculte---</option>
+                                        <select class="fac" required name="faculte" id="country">
+                                            <option value="{{ $student->id_fac }}" selected="true" disabled>{{ $student->nom_fac }}</option>
                                             @foreach ($faculte as $fac)
                                                 <option value="{{ $fac->id_fac }}">{{ $fac->nom_fac }}</option>
                                             @endforeach
@@ -93,8 +94,8 @@
                                         <i class="fa-solid fa-book"></i>
                                     </div>
                                     <div class="select">
-                                        <select name="specialisation" id="state">
-                                            <option value="" disabled>--La faculte d'abord---</option>
+                                        <select required name="specialisation" id="state">
+                                            <option value="{{ $student->id_spec }}" >{{ $student->nom_spec }}</option>
 
                                         </select>
                                     </div>
@@ -112,8 +113,8 @@
                                         <i class="fa-solid fa-calendar-days"></i>
                                     </div>
                                     <div class="select">
-                                        <select name="classe" id="">
-                                            <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
+                                        <select required name="classe" id="">
+                                            <option value="{{ $student->classe }}" selected="true" disabled>{{ $student->classe }}</option>
                                             <option value="BAC I">BAC I</option>
                                             <option value="BAC II">BAC II</option>
                                             <option value="BAC III">BAC III</option>
@@ -138,7 +139,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="nom" value="{{ $student->nom_etu }}" type="text" placeholder="Nom...">
+                                <input name="nom" required value="{{ $student->nom_etu }}" type="text" placeholder="Nom...">
                             </div>
                         </div>
                     </div>
@@ -151,7 +152,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="prenom" value="{{ $student->prenom_etu }}" type="text" placeholder="Prenom...">
+                                <input name="prenom" required value="{{ $student->prenom_etu }}" type="text" placeholder="Prenom...">
                             </div>
                         </div>
                     </div>
@@ -164,7 +165,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="input">
-                                <input name="email" value="{{ $student->email_etu }}" type="email" placeholder="exemple@biu.bi">
+                                <input name="email" required value="{{ $student->email_etu }}" type="email" placeholder="exemple@biu.bi">
                             </div>
                         </div>
                     </div>
@@ -177,7 +178,7 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="input_date">
-                                <input name="birthdate" value="{{ $student->date_naiss }}" class="date" type="date" placeholder="sdi">
+                                <input name="birthdate" required value="{{ $student->date_naiss }}" class="date" type="date" placeholder="sdi">
                             </div>
                         </div>
                     </div>
@@ -194,7 +195,7 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="phone" value="{{ $student->telephone_etu }}" type="number" placeholder="76 78 76 89">
+                                    <input name="phone" required value="{{ $student->telephone_etu }}" type="number" placeholder="76 78 76 89">
                                 </div>
                             </div>
                         </div>
@@ -207,8 +208,8 @@
                                     <i class="fa-solid fa-mars-and-venus"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="sexe" id="">
-                                        <option value="" disabled>--Selection le sexe---</option>
+                                    <select required name="sexe" id="">
+                                        <option value="{{ $student->sexe }}" selected="true">{{ $student->sexe }}</option>
                                         <option value="Homme">Homme</option>
                                         <option value="Femme">Femme</option>
                                     </select>
@@ -224,7 +225,7 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="address" value="{{ $student->adress_etu }}" type="text" placeholder="Kigobe...">
+                                    <input name="address" required value="{{ $student->adress_etu }}" type="text" placeholder="Kigobe...">
                                 </div>
                             </div>
                         </div>
@@ -237,8 +238,8 @@
                                     <i class="fa-brands fa-mendeley"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="etat" id="">
-                                        <option value="" selected="true" disabled>--Selection votre etat---</option>
+                                    <select required name="etat" id="">
+                                        <option value="{{ $student->etat_civil }}" selected="true" disabled>{{ $student->etat_civil }}</option>
                                         <option value="Celibataire">Celibataire</option>
                                         <option value="Marie">Marie</option>
                                     </select>
