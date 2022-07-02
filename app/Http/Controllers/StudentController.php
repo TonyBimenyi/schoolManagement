@@ -42,8 +42,9 @@ class StudentController extends Controller
         $student->id_spec = $request->input('specialisation');
         $student->classe = $request->input('classe');
         $student->annee_academique = $request->input('annee_aca');
+        $student->etat_civil = $request->input('etat');
         $student->save();
-        return redirect('student')->with('alert',"Student Added succcessfully");;
+        return redirect('student')->with('alert',"L'étudiant est enregisté");;
     }
     public function list_student()
     {
@@ -56,9 +57,41 @@ class StudentController extends Controller
     }
     public function edit_student($id)
     {
-        $student=Student::where('id_etu',$id)->first();
+        // $student=Student::where('id_etu',$id)->first();
+        $student = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        ->where('etudiants.id_etu',$id)
+        ->first();
         $faculte = Faculte::get();
 
         return view('utilisateurs.students.edit_student',compact('student','faculte'));
+    }
+    public function update_student(Request $request,$id)
+    {
+        $student=DB::table('etudiants')
+        ->where('id_etu',$id)
+        ->update(['nom_etu'=>$request->input('nom'),
+                    'prenom_etu'=>$request->input('prenom'),
+                    'date_naiss'=>$request->input('birthdate'),
+                    'email_etu'=>$request->input('email'),
+                    'adress_etu'=>$request->input('address'),
+                    'telephone_etu'=>$request->input('phone'),
+                    'promotion'=>$request->input('promotion'),
+                    'sexe_etu'=>$request->input('sexe'),
+                    'id_fac'=>$request->input('faculte'),
+                    'id_spec'=>$request->input('specialisation'),
+                    'classe'=>$request->input('classe'),
+                    'annee_academique'=>$request->input('annee_aca'),
+                    'etat_civil'=>$request->input('etat'),
+                    ]
+    );
+    return redirect('student')->with('alert',"L'etudiant est modifié");
+    }
+    public function delete_student($id)
+    {
+        $student=Student::where('id_etu',$id)->delete();
+
+        return redirect('student')->with('alert',"L'étudiant est supprimé");
     }
 }

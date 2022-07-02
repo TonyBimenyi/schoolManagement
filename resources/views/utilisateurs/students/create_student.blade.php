@@ -36,7 +36,7 @@
                                     <i class="fa-solid fa-calendar-days"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="annee_aca" id="">
+                                    <select required name="annee_aca" id="">
                                         <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
                                         <option value="2021-2022">2021-2022</option>
                                         <option value="2022-2023">2022-2023</option>
@@ -56,7 +56,7 @@
                                     <i class="fa-brands fa-buromobelexperte"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="promotion" min="0"  type="number" placeholder="07">
+                                    <input required name="promotion" min="0"  type="number" placeholder="07">
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                         <i class="fa-solid fa-book"></i>
                                     </div>
                                     <div class="select">
-                                        <select class="fac" name="faculte" id="country">
+                                        <select required class="fac" name="faculte" id="country">
                                             <option value="" selected="true" disabled="true">--Selectionner la faculte---</option>
                                             @foreach ($faculte as $fac)
                                                 <option value="{{ $fac->id_fac }}">{{ $fac->nom_fac }}</option>
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="select">
                                         <select name="specialisation" id="state">
-                                            <option value="" disabled>--La faculte d'abord---</option>
+                                            <option value="" required disabled>--La faculte d'abord---</option>
 
                                         </select>
                                     </div>
@@ -112,7 +112,7 @@
                                         <i class="fa-solid fa-calendar-days"></i>
                                     </div>
                                     <div class="select">
-                                        <select name="classe" id="">
+                                        <select required name="classe" id="">
                                             <option value="" selected="true" disabled>--Selectionner l'A/A---</option>
                                             <option value="BAC I">BAC I</option>
                                             <option value="BAC II">BAC II</option>
@@ -138,7 +138,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="nom" type="text" placeholder="Nom...">
+                                <input name="nom" required type="text" placeholder="Nom...">
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="prenom" type="text" placeholder="Prenom...">
+                                <input name="prenom" required type="text" placeholder="Prenom...">
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="input">
-                                <input name="email" type="email" placeholder="exemple@biu.bi">
+                                <input name="email" required type="email" placeholder="exemple@biu.bi">
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="input_date">
-                                <input name="birthdate" class="date" type="date" placeholder="sdi">
+                                <input name="birthdate" required class="date" type="date" placeholder="sdi">
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="phone" type="number" placeholder="76 78 76 89">
+                                    <input name="phone" required type="number" placeholder="76 78 76 89">
                                 </div>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                                     <i class="fa-solid fa-mars-and-venus"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="sexe" id="">
+                                    <select name="sexe" required id="">
                                         <option value="" disabled>--Selection le sexe---</option>
                                         <option value="Homme">Homme</option>
                                         <option value="Femme">Femme</option>
@@ -224,7 +224,7 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="address" type="text" placeholder="Kigobe...">
+                                    <input name="address" required type="text" placeholder="Kigobe...">
                                 </div>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                                     <i class="fa-brands fa-mendeley"></i>
                                 </div>
                                 <div class="select">
-                                    <select name="etat" id="">
+                                    <select name="etat" required id="">
                                         <option value="" selected="true" disabled>--Selection votre etat---</option>
                                         <option value="Celibataire">Celibataire</option>
                                         <option value="Marie">Marie</option>
