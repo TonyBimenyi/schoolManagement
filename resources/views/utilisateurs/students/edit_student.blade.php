@@ -16,7 +16,7 @@
         @include('layouts.top_row.utu_top')
         @include('layouts.second_row.student')
         <div class="form">
-            <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un étudiant</h3>
+            <h3 style="margin:10px 35px;color:var(--primary)">Modifier les informations de {{ $student->nom_etu }} {{ $student->prenom_etu }}</h3>
             <form action="{{ url('insert_student') }}" method="POST">
                 @csrf
                 <div style="" class="titre">
@@ -56,7 +56,7 @@
                                     <i class="fa-brands fa-buromobelexperte"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="promotion" min="0"  type="number" placeholder="07">
+                                    <input name="promotion" min="0" value="{{ $student->promotion }}"  type="number" placeholder="07">
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="nom" type="text" placeholder="Nom...">
+                                <input name="nom" value="{{ $student->nom_etu }}" type="text" placeholder="Nom...">
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </div>
                             <div class="input">
-                                <input name="prenom" type="text" placeholder="Prenom...">
+                                <input name="prenom" value="{{ $student->prenom_etu }}" type="text" placeholder="Prenom...">
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="input">
-                                <input name="email" type="email" placeholder="exemple@biu.bi">
+                                <input name="email" value="{{ $student->email_etu }}" type="email" placeholder="exemple@biu.bi">
                             </div>
                         </div>
                     </div>
@@ -177,7 +177,7 @@
                                 <i class="fa-solid fa-calendar-days"></i>
                             </div>
                             <div class="input_date">
-                                <input name="birthdate" class="date" type="date" placeholder="sdi">
+                                <input name="birthdate" value="{{ $student->date_naiss }}" class="date" type="date" placeholder="sdi">
                             </div>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="phone" type="number" placeholder="76 78 76 89">
+                                    <input name="phone" value="{{ $student->telephone_etu }}" type="number" placeholder="76 78 76 89">
                                 </div>
                             </div>
                         </div>
@@ -224,7 +224,7 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div class="input">
-                                    <input name="address" type="text" placeholder="Kigobe...">
+                                    <input name="address" value="{{ $student->adress_etu }}" type="text" placeholder="Kigobe...">
                                 </div>
                             </div>
                         </div>
@@ -249,7 +249,7 @@
                     </div>
                 </div>
                 <div class="button">
-                    <button>Ajouter</button>
+                    <button>Modifier</button>
                 </div>
             </form>
 

@@ -30,7 +30,7 @@
                             <th>ADDRESSE</th>
                             <th>SEXE</th>
                             <th colspan="3">OPTIONS</th>
-                        
+
                         </tr>
                     </thead>
                     <tbody>
@@ -44,12 +44,12 @@
                                 <td>{{ $ens->adress_ens }}</td>
                                 <td>{{ $ens->sexe_ens }}</td>
                                 <td><button class="edit">Details</button></td>
-                                {{-- <td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
-                                 --}}
+                               {{-- <a href=""><td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td> --}}
+
                                  <td id="btn"><a href="{{ url('edit_teacher/'.$ens->id_ens) }}" class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</a></td>
                                 <td> <a href="{{ url('delete_teacher/'.$ens->id_ens) }}" id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</a></td>
-                            </tr>   
-                            @endforeach                     
+                            </tr>
+                            @endforeach
                     </tbody>
                 </table>
             </div>
