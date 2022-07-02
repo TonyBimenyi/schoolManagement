@@ -79,7 +79,7 @@
                     </div>
                     <div class="input_group">
                         <div class="icon">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-location-dot"></i>
                         </div>
                         <div class="input">
                             <input type="text" placeholder="Addresse..." name="adresse" required>

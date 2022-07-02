@@ -95,7 +95,7 @@
                 </div>
                 <div class="input_group">
                     <div class="icon">
-                        <i class="fa-solid fa-mars-and-venus"></i>
+                        <i class="fa-solid fa-people-group"></i>
                     </div>
                     <div class="select">
                         <select name="fonction" id="">
@@ -114,7 +114,7 @@
                 </div>
                 <div class="input_group">
                     <div class="icon">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
                     <div class="input">
                         <input type="text" name="salaire" placeholder="Salaire..." required>
