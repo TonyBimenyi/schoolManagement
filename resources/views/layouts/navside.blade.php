@@ -33,14 +33,14 @@
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="{{url('admin')}}">
             <i class="fa-solid fa-users"></i>
             <span class="link_name">Utilisateurs</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="">Utilisateurs</a></li>
+          <li><a class="link_name" href="{{url('admin')}}">Utilisateurs</a></li>
           <li><a href="{{url('admin')}}">Admins</a></li>
           <li><a href="#">Etudiants</a></li>
           <li><a href="#">Enseignants</a></li>
@@ -51,14 +51,14 @@
         <div class="iocn-link">
           <a href="#">
             <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Enseignants</span>
+            <span class="link_name">Cours</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Enseignants</a></li>
-          <li><a href="#">Liste des Enseignants</a></li>
-          <li><a href="#">Ajouter un enseignant</a></li>
+          <li><a class="link_name" href="#">Cours</a></li>
+          <li><a href="#">Liste des Cours</a></li>
+          <li><a href="#">Nouveau Cours</a></li>
           <li><a href="#">Card Design</a></li>
         </ul>
       </li>

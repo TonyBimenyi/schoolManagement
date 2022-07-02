@@ -54,4 +54,11 @@ class StudentController extends Controller
         ->get();
         return view('utilisateurs.students.student',compact('students'));
     }
+    public function edit_student($id)
+    {
+        $student=Student::where('id_etu',$id)->first();
+        $faculte = Faculte::get();
+
+        return view('utilisateurs.students.edit_student',compact('student','faculte'));
+    }
 }

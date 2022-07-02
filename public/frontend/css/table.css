@@ -5,6 +5,7 @@
 
     border-radius: 5px;
     box-shadow: 0px 0px 10px 1px rgba(7, 7, 7, 0.103);
+    transition: .7s;
 }
 .search_row{
     display: flex;
@@ -51,7 +52,12 @@ tbody tr{
     color: white !important;
     font-weight: 700;
     border-radius: 3px;
+    cursor: pointer;
 
+}
+.edit:hover{
+    background-color: var(--active);
+    transition: .5s;
 }
 #delete{
     background-color: var(--danger);
@@ -60,6 +66,11 @@ tbody tr{
     color: white !important;
     font-weight: 700;
     border-radius: 3px;
+    cursor: pointer;
+}
+#delete:hover{
+    background-color: var(--active);
+    transition: .5s;
 }
 #role{
     background-color: var(--grey);
