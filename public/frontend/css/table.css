@@ -9,10 +9,24 @@
 }
 .search_row{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--grey);
     margin: 0px 35px;
+}
+.sort select{
+    height: 35px;
+    border-radius: 3px;
+    border:2px solid var(--primary);
+    padding-left: 10px;
+    color: var(--primary);
+    outline: none;
+    background-color: transparent;
+    margin: 0px 5px;
+}
+.sort{
+    display: flex;
+    justify-content: space-between;
 }
 .table_content input{
     height: 35px;

@@ -12,7 +12,24 @@
         <div class="table_content">
             <div class="search_row">
                 <div class="sort">
-
+                    <div class="fac">
+                        <select name="" id="">
+                            <option value="" selected disabled>--Faculte--</option>
+                        </select>
+                    </div>
+                    <div class="spec">
+                        <select name="" id="">
+                            <option value="" selected disabled>--Specialisation--</option>
+                        </select>
+                    </div>
+                    <div class="classe">
+                        <select name="" id="classe">
+                            <option value="" disabled selected>--Select the Class--</option>
+                            <option value="BAC I">BAC I</option>
+                            <option value="BAC II">BAC II</option>
+                            <option value="BAC III">BAC III</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="search">
                     <input type="search" placeholder="Rechercher...">
@@ -37,7 +54,7 @@
                     <tbody>
                         @foreach ($students as $stu)
 
-                            <tr>
+                            <tr id="table">
                                 <td>CO-{{ $stu->promotion }}-{{ $stu->id_etu }}</td>
                                 <td>{{ $stu->nom_etu }}</td>
                                 <td>{{ $stu->prenom_etu }}</td>
@@ -47,7 +64,7 @@
                                 <td>{{ $stu->sexe_etu }}</td>
                                 <td>{{ $stu->nom_fac }}</td>
                                 <td>{{ $stu->classe }}</td>
-                                <td id="btn"><a href="{{ url('edit_student/'.$stu->id_etu) }}"> <button  class="edit"><i class="fa-solid fa-file-lines"></i> Attestation</button></a></td>
+                                <td id="btn"><a href="{{ url('attestation/'.$stu->id_etu) }}"> <button  class="edit"><i class="fa-solid fa-file-lines"></i> Attestation</button></a></td>
                                 <td id="btn"><a href="{{ url('edit_student/'.$stu->id_etu) }}">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
                                 <td> <a href="{{ url('delete_student/'.$stu->id_etu) }}"><button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></a></td>
                             </tr>
@@ -59,4 +76,28 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    jQuery(document).ready(function(){
+        jQuery('#classe').change(function(){
+            let cla=jQuery(this).val();
+            $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+        });
+        $.ajax({
+            method:"POST",
+            url:"/getClasse",
+            data:{
+            'cla':cla,
+            "_token": "{{ csrf_token() }}",
+            },
+            success:function(result){
+                    jQuery('#table').html(result);
+                }
+        })
+        })
+    })
+</script>
 @endsection
