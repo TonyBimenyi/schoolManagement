@@ -42,6 +42,9 @@ Route::middleware(['auth',])->group(function(){
     Route::get('teacher','App\Http\Controllers\TeacherController@list_teacher');
     Route::get('create_teacher','App\Http\Controllers\TeacherController@create_teacher');
     Route::post('insert_teacher','App\Http\Controllers\TeacherController@insert_teacher');
+    Route::get('edit_teacher/{id}','App\Http\Controllers\TeacherController@edit_teacher');
+    Route::put('update_teacher/{id}','App\Http\Controllers\TeacherController@update_teacher');
+    Route::get('delete_teacher/{id}','App\Http\Controllers\TeacherController@delete_teacher');
     // END TEACHER
 
     // START PERSONNEL
