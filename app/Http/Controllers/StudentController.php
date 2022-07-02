@@ -47,6 +47,11 @@ class StudentController extends Controller
     }
     public function list_student()
     {
-        return view('utilisateurs.students.student');
+        $students = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        // ->where('products.id',$id)
+        ->get();
+        return view('utilisateurs.students.student',compact('students'));
     }
 }

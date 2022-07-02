@@ -96,4 +96,5 @@ form{
     background-color: var(--primary);
     color: white;
     padding: 5px 0;
+    border-radius: 5px;
 }
