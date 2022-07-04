@@ -16,6 +16,7 @@ class Cours extends Model
         'class',
         'unite',
         'id_ens',
+        'fac_etu',
         'id_spec'
     ];
 }
