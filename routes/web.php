@@ -39,6 +39,12 @@ Route::middleware(['auth',])->group(function(){
     Route::get('edit_student/{id}','App\Http\Controllers\StudentController@edit_student');
     Route::put('update_student/{id}','App\Http\Controllers\StudentController@update_student');
     Route::get('delete_student/{id}','App\Http\Controllers\StudentController@delete_student');
+    // Route::get('attestation/{id}','App\Http\Controllers\StudentController@attestation');
+    Route::get('id_etudiant','App\Http\Controllers\InfoController@id_etudiant');
+    Route::get('attestation',function(){
+        $pdf = PDF::loadView('attestation');
+        return $pdf->download('attestation.pdf');
+    });
     // END STUDENT
 
     // START TEACHER

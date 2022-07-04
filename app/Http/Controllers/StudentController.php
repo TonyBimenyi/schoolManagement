@@ -27,6 +27,21 @@ class StudentController extends Controller
          }
     echo $html;
     }
+    public function getClasse(Request $request)
+    {
+        $cla= $request->post('cla');
+        $state=DB::table('etudians')->where('classe',$cla)
+        ->get();
+                $html='<option name="spec" value="" disabled>Select Specialisation</option>';
+        foreach($state as $list){
+          $html.= '<tr>
+                    <td>'.$list->nom_etu.'</td>
+                    <td>'.sad.'</td>
+                    <td>'.sdsd.'</td>
+          </tr>';
+         }
+    echo $html;
+    }
     public function insert_student(Request $request)
     {
         $student = new Student();
@@ -93,5 +108,9 @@ class StudentController extends Controller
         $student=Student::where('id_etu',$id)->delete();
 
         return redirect('student')->with('alert',"L'étudiant est supprimé");
+    }
+    public function attestation()
+    {
+        return view('utilisateurs.students.attestation');
     }
 }
