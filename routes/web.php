@@ -68,6 +68,7 @@ Route::middleware(['auth',])->group(function(){
     //START FINANCES
     Route::get('miverval_dash','App\Http\Controllers\FinanceController@index');
     Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
+    Route::get('add_minerval','App\Http\Controllers\FinanceController@add_minerval');
     //END FINANCES
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

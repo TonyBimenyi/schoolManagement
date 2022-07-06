@@ -10,4 +10,8 @@ class FinanceController extends Controller
     {
         return view('finances.dashboard.dashboard');
     }
+     public function add_minerval(Request $request)
+    {
+        return view('finances.minervals.add_minos');
+    }
 }

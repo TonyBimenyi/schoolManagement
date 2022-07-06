@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2022 at 01:35 PM
+-- Generation Time: Jul 06, 2022 at 02:08 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -231,12 +231,27 @@ INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `t
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `salaires`
+--
+
+CREATE TABLE `salaires` (
+  `id_salaire` int(11) NOT NULL,
+  `id_personnnel` int(11) NOT NULL,
+  `montant_salaire` double NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sorties`
 --
 
 CREATE TABLE `sorties` (
   `id_sortie` int(11) NOT NULL,
   `type_sortie` varchar(255) NOT NULL,
+  `designation_sortie` varchar(255) NOT NULL,
   `montant_sortie` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -283,6 +298,8 @@ CREATE TABLE `stats` (
   `date_revenu` timestamp NULL DEFAULT NULL,
   `id_entree` int(11) NOT NULL,
   `id_sortie` int(11) NOT NULL,
+  `id_salaire` int(11) NOT NULL,
+  `id_minerval` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -390,6 +407,12 @@ ALTER TABLE `personnel`
   ADD PRIMARY KEY (`id_personnel`);
 
 --
+-- Indexes for table `salaires`
+--
+ALTER TABLE `salaires`
+  ADD PRIMARY KEY (`id_salaire`);
+
+--
 -- Indexes for table `sorties`
 --
 ALTER TABLE `sorties`
@@ -408,7 +431,9 @@ ALTER TABLE `specialisations`
 ALTER TABLE `stats`
   ADD PRIMARY KEY (`id_stat`),
   ADD KEY `id_entree` (`id_entree`),
-  ADD KEY `id_sortie` (`id_sortie`);
+  ADD KEY `id_sortie` (`id_sortie`),
+  ADD KEY `id_minerval` (`id_minerval`),
+  ADD KEY `id_salaire` (`id_salaire`);
 
 --
 -- Indexes for table `users`
@@ -476,6 +501,12 @@ ALTER TABLE `personnel`
   MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `salaires`
+--
+ALTER TABLE `salaires`
+  MODIFY `id_salaire` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `sorties`
 --
 ALTER TABLE `sorties`
@@ -527,7 +558,9 @@ ALTER TABLE `specialisations`
 --
 ALTER TABLE `stats`
   ADD CONSTRAINT `stats_ibfk_1` FOREIGN KEY (`id_entree`) REFERENCES `entrees` (`id_entree`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `stats_ibfk_2` FOREIGN KEY (`id_sortie`) REFERENCES `sorties` (`id_sortie`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `stats_ibfk_2` FOREIGN KEY (`id_sortie`) REFERENCES `sorties` (`id_sortie`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `stats_ibfk_3` FOREIGN KEY (`id_minerval`) REFERENCES `minervals` (`id_min`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `stats_ibfk_4` FOREIGN KEY (`id_salaire`) REFERENCES `salaires` (`id_salaire`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
