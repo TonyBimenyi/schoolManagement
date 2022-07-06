@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2022 at 10:48 PM
+-- Generation Time: Jul 06, 2022 at 01:35 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -20,22 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `school`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `cours`
---
-
-CREATE TABLE `cours` (
-  `id_cours` int(11) NOT NULL,
-  `nom_cours` varchar(255) NOT NULL,
-  `credits` int(11) NOT NULL,
-  `class` varchar(20) NOT NULL,
-  `unite` varchar(5) NOT NULL,
-  `id_ens` int(11) NOT NULL,
-  `id_spec` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -67,6 +51,20 @@ INSERT INTO `enseignants` (`id_ens`, `nom_ens`, `prenom_ens`, `telephone_ens`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `entrees`
+--
+
+CREATE TABLE `entrees` (
+  `id_entree` int(11) NOT NULL,
+  `type_entree` varchar(255) NOT NULL,
+  `montant_entree` double NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `etudiants`
 --
 
@@ -84,6 +82,7 @@ CREATE TABLE `etudiants` (
   `id_spec` int(11) NOT NULL,
   `classe` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `annee_academique` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `etat_civil` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -92,8 +91,10 @@ CREATE TABLE `etudiants` (
 -- Dumping data for table `etudiants`
 --
 
-INSERT INTO `etudiants` (`id_etu`, `nom_etu`, `prenom_etu`, `date_naiss`, `email_etu`, `adress_etu`, `telephone_etu`, `promotion`, `sexe_etu`, `id_fac`, `id_spec`, `classe`, `annee_academique`, `created_at`, `updated_at`) VALUES
-(1, 'Irakoze', 'Christ', '1996-04-24', 'ira@biu.bi', 'Kinindo', 76161970, 7, 'Homme', 1, 6, 'BAC II', '2021-2022', '2022-07-01 03:45:45', '2022-07-01 03:45:45');
+INSERT INTO `etudiants` (`id_etu`, `nom_etu`, `prenom_etu`, `date_naiss`, `email_etu`, `adress_etu`, `telephone_etu`, `promotion`, `sexe_etu`, `id_fac`, `id_spec`, `classe`, `annee_academique`, `etat_civil`, `created_at`, `updated_at`) VALUES
+(1, 'Irakoze', 'Chris', '1996-04-24', 'ira@biu.bi', 'Kinindo', 76161970, 7, 'Homme', 1, 6, 'BAC II', '2021-2022', '', '2022-07-01 03:45:45', '2022-07-01 03:45:45'),
+(2, 'Nishimwe', 'Alain Bruce', '2002-04-24', 'bruce@biu.bi', 'Carama', 76161970, 7, 'Homme', 2, 4, 'BAC III', '2021-2022', '', '2022-07-01 03:54:49', '2022-07-01 03:54:49'),
+(3, 'Niyonkuru', 'Laurente', '1998-08-14', 'lo@biu.bi', 'Gihosha', 69845674, 7, 'Femme', 1, 10, 'BAC II', '2021-2022', 'Celibataire', '2022-07-02 19:28:37', '2022-07-02 19:28:37');
 
 -- --------------------------------------------------------
 
@@ -133,22 +134,6 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `horaires`
---
-
-CREATE TABLE `horaires` (
-  `id_horaire` int(11) NOT NULL,
-  `date_debut` int(11) NOT NULL,
-  `date_fin` int(11) NOT NULL,
-  `section1` int(11) NOT NULL,
-  `section2` int(11) NOT NULL,
-  `section3` int(11) NOT NULL,
-  `section4` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `migrations`
 --
 
@@ -173,16 +158,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notes`
+-- Table structure for table `minervals`
 --
 
-CREATE TABLE `notes` (
-  `id_note` int(11) NOT NULL,
-  `id_cours` int(11) NOT NULL,
+CREATE TABLE `minervals` (
+  `id_min` int(11) NOT NULL,
   `id_etu` int(11) NOT NULL,
-  `note_tp` int(11) NOT NULL,
-  `note_test` int(11) NOT NULL,
-  `note_exam` int(11) NOT NULL
+  `montant_paye` double NOT NULL,
+  `montant_total` double NOT NULL,
+  `tranche` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -229,15 +215,32 @@ CREATE TABLE `personnel` (
   `sexe` varchar(20) NOT NULL,
   `email` varchar(200) NOT NULL,
   `fonction` varchar(255) NOT NULL,
-  `salaire` float NOT NULL
+  `salaire` float NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `personnel`
 --
 
-INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `telephone_personnel`, `sexe`, `email`, `fonction`, `salaire`) VALUES
-(1, 'Nishimwe', 'Alain Bruce', '79800653', 'M', 'brucart@biu.bi', 'Secretaire', 100000);
+INSERT INTO `personnel` (`id_personnel`, `nom_personnel`, `prenom_personnel`, `telephone_personnel`, `sexe`, `email`, `fonction`, `salaire`, `created_at`, `updated_at`) VALUES
+(1, 'Nishimwe', 'Alain Bruce', '79800653', 'homme', 'brucart@biu.bi', 'comptable', 100000, NULL, NULL),
+(2, 'Njejimana', 'Elissa', '79483743', 'homme', 'eli@biu.bi', 'doyen', 1200000, '2022-07-06 18:32:46', '2022-07-06 18:32:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sorties`
+--
+
+CREATE TABLE `sorties` (
+  `id_sortie` int(11) NOT NULL,
+  `type_sortie` varchar(255) NOT NULL,
+  `montant_sortie` double NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -263,6 +266,26 @@ INSERT INTO `specialisations` (`id_spec`, `nom_spec`, `id_fac`, `created_at`, `u
 (6, 'Regional integration and International Trade', 1, NULL, NULL),
 (9, 'Procurement and Logistics management', 1, NULL, NULL),
 (10, 'Non Governmental Organization Management', 1, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stats`
+--
+
+CREATE TABLE `stats` (
+  `id_stat` int(11) NOT NULL,
+  `type_depense` varchar(255) NOT NULL,
+  `montant_depense` double NOT NULL,
+  `date_depense` timestamp NULL DEFAULT NULL,
+  `type_revenu` varchar(355) NOT NULL,
+  `montant_revenu` double NOT NULL,
+  `date_revenu` timestamp NULL DEFAULT NULL,
+  `id_entree` int(11) NOT NULL,
+  `id_sortie` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -293,25 +316,24 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `pa
 (2, 'Bruce', '', 'bruce@biu.bi', NULL, 'bujumbura', 'super admin', 1, NULL, NULL, NULL),
 (3, 'TonyTresor', '', 'tony@biu.bi', NULL, 'bujumbura', 'admin\r\n', 0, NULL, NULL, NULL),
 (4, 'Manimpa Tony Tresor', 'Tresor', 'mato@biu.bi', NULL, '$2y$10$.WAY2qrsGaSU3HFN3tvqnO9TzMTxzFwV4GSmC./.pC3zoYofA/38y', 'Super Admin', 0, NULL, '2022-06-29 19:52:12', '2022-06-29 19:52:12'),
-(8, 'cunyr@mailinator.com', 'gawol', 'geqyker@mailinator.com', NULL, '$2y$10$TJiK0VHzHmyfXQ1n7QIwzO.vpHKA3v5Gj8RWYaLO9S0tZA3rXl0w6', 'Admin', 0, NULL, '2022-06-29 19:58:38', '2022-06-29 19:58:38');
+(8, 'cunyr@mailinator.com', 'gawol', 'geqyker@mailinator.com', NULL, '$2y$10$TJiK0VHzHmyfXQ1n7QIwzO.vpHKA3v5Gj8RWYaLO9S0tZA3rXl0w6', 'Admin', 0, NULL, '2022-06-29 19:58:38', '2022-06-29 19:58:38'),
+(9, 'Njejimana', 'Elissa', 'eli@biu.bi', NULL, '$2y$10$XhfWLaaLOACtMkIPpt0MOePnAWtVyNZbF/gBG7k8KtAbclUgI2I1u', 'doyen', 1, NULL, '2022-07-06 18:32:46', '2022-07-06 18:32:46');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `cours`
---
-ALTER TABLE `cours`
-  ADD PRIMARY KEY (`id_cours`),
-  ADD KEY `cours_ibfk_1` (`id_ens`),
-  ADD KEY `id_spec` (`id_spec`);
-
---
 -- Indexes for table `enseignants`
 --
 ALTER TABLE `enseignants`
   ADD PRIMARY KEY (`id_ens`);
+
+--
+-- Indexes for table `entrees`
+--
+ALTER TABLE `entrees`
+  ADD PRIMARY KEY (`id_entree`);
 
 --
 -- Indexes for table `etudiants`
@@ -341,12 +363,11 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `notes`
+-- Indexes for table `minervals`
 --
-ALTER TABLE `notes`
-  ADD PRIMARY KEY (`id_note`),
-  ADD KEY `id_etu` (`id_etu`),
-  ADD KEY `id_cours` (`id_cours`);
+ALTER TABLE `minervals`
+  ADD PRIMARY KEY (`id_min`),
+  ADD KEY `id_etu` (`id_etu`);
 
 --
 -- Indexes for table `password_resets`
@@ -369,11 +390,25 @@ ALTER TABLE `personnel`
   ADD PRIMARY KEY (`id_personnel`);
 
 --
+-- Indexes for table `sorties`
+--
+ALTER TABLE `sorties`
+  ADD PRIMARY KEY (`id_sortie`);
+
+--
 -- Indexes for table `specialisations`
 --
 ALTER TABLE `specialisations`
   ADD PRIMARY KEY (`id_spec`),
   ADD KEY `id_fac` (`id_fac`);
+
+--
+-- Indexes for table `stats`
+--
+ALTER TABLE `stats`
+  ADD PRIMARY KEY (`id_stat`),
+  ADD KEY `id_entree` (`id_entree`),
+  ADD KEY `id_sortie` (`id_sortie`);
 
 --
 -- Indexes for table `users`
@@ -387,22 +422,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `cours`
---
-ALTER TABLE `cours`
-  MODIFY `id_cours` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `enseignants`
 --
 ALTER TABLE `enseignants`
   MODIFY `id_ens` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `entrees`
+--
+ALTER TABLE `entrees`
+  MODIFY `id_entree` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  MODIFY `id_etu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_etu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `facultes`
@@ -423,10 +458,10 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `notes`
+-- AUTO_INCREMENT for table `minervals`
 --
-ALTER TABLE `notes`
-  MODIFY `id_note` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `minervals`
+  MODIFY `id_min` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -438,7 +473,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `personnel`
 --
 ALTER TABLE `personnel`
-  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_personnel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `sorties`
+--
+ALTER TABLE `sorties`
+  MODIFY `id_sortie` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `specialisations`
@@ -447,21 +488,20 @@ ALTER TABLE `specialisations`
   MODIFY `id_spec` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `stats`
+--
+ALTER TABLE `stats`
+  MODIFY `id_stat` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `cours`
---
-ALTER TABLE `cours`
-  ADD CONSTRAINT `cours_ibfk_1` FOREIGN KEY (`id_ens`) REFERENCES `enseignants` (`id_ens`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cours_ibfk_2` FOREIGN KEY (`id_spec`) REFERENCES `specialisations` (`id_spec`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `etudiants`
@@ -471,17 +511,23 @@ ALTER TABLE `etudiants`
   ADD CONSTRAINT `etudiants_ibfk_2` FOREIGN KEY (`id_spec`) REFERENCES `specialisations` (`id_spec`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `notes`
+-- Constraints for table `minervals`
 --
-ALTER TABLE `notes`
-  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`id_cours`) REFERENCES `cours` (`id_cours`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `notes_ibfk_3` FOREIGN KEY (`id_etu`) REFERENCES `etudiants` (`id_etu`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `minervals`
+  ADD CONSTRAINT `minervals_ibfk_1` FOREIGN KEY (`id_etu`) REFERENCES `etudiants` (`id_etu`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `specialisations`
 --
 ALTER TABLE `specialisations`
   ADD CONSTRAINT `specialisations_ibfk_1` FOREIGN KEY (`id_fac`) REFERENCES `facultes` (`id_fac`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `stats`
+--
+ALTER TABLE `stats`
+  ADD CONSTRAINT `stats_ibfk_1` FOREIGN KEY (`id_entree`) REFERENCES `entrees` (`id_entree`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `stats_ibfk_2` FOREIGN KEY (`id_sortie`) REFERENCES `sorties` (`id_sortie`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

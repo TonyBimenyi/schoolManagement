@@ -47,32 +47,17 @@
           <li><a href="#">Staff</a></li>
         </ul>
       </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Cours</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Cours</a></li>
-          <li><a href="#">Liste des Cours</a></li>
-          <li><a href="#">Nouveau Cours</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
 
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="miverval_dash">
             <i class='bx bx-line-chart' ></i>
             <span class="link_name">Finances</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Finances</a></li>
+          <li><a class="link_name" href="miverval_dash">Finances</a></li>
           <li><a href="#">Entrees</a></li>
           <li><a href="#">Sorties</a></li>
           <li><a href="#">Minervals</a></li>

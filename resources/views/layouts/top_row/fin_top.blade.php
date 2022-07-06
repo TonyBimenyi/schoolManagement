@@ -1,9 +1,9 @@
 
 <div class="header_part">
-    <a class="" href="{{ url('') }}">
+    <a class="" href="{{ url('miverval_dash') }}">
         <div class="menu_li  {{Request::is('admin') ? 'active':''}}">
             <div class="icon">
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-gauge"></i>
             </div>
             <div class="text">
                 <p>TABLEAU DE BORD</p>
@@ -13,7 +13,7 @@
     <a class="" href="{{ url('') }}">
     <div class="menu_li  {{Request::is('') ? 'active':''}}">
         <div class="icon">
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-right-to-bracket"></i>
         </div>
         <div class="text">
             <p>ENTREES</p>
@@ -23,7 +23,7 @@
     <a href="{{ url('') }}">
     <div class="menu_li">
         <div class="icon">
-            <i class="fa-solid fa-graduation-cap"></i>
+            <i class="fa-solid fa-right-from-bracket"></i>
 
         </div>
         <div class="text">
@@ -34,7 +34,7 @@
     <a href="{{ url('') }}">
     <div class="menu_li">
         <div class="icon">
-            <i class="fa-solid fa-people-group"></i>
+            <i class="fa-solid fa-chalkboard-user"></i>
         </div>
         <div class="text">
             <p>MINERVALS</p>
@@ -44,7 +44,7 @@
 <a href="{{ url('') }}">
     <div class="menu_li">
         <div class="icon">
-            <i class="fa-solid fa-clipboard-user"></i>
+            <i class="fa-solid fa-hand-holding-dollar"></i>
         </div>
         <div class="text">
             <p>SALAIRES</p>
@@ -54,7 +54,7 @@
     <a href="{{ url('') }}">
         <div class="menu_li">
             <div class="icon">
-                <i class="fa-solid fa-clipboard-user"></i>
+                <i class="fa-solid fa-chart-bar"></i>
             </div>
             <div class="text">
                 <p>STATS</p>

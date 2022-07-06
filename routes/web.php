@@ -64,5 +64,10 @@ Route::middleware(['auth',])->group(function(){
     Route::put('update_personnel/{id}','App\Http\Controllers\PersonnelController@update_personnel');
     Route::get('delete_personnel/{id}','App\Http\Controllers\PersonnelController@delete_personnel');
     // END PERSONNEL
+
+    //START FINANCES
+    Route::get('miverval_dash','App\Http\Controllers\FinanceController@index');
+    Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
+    //END FINANCES
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
