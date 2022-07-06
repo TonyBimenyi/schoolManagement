@@ -20,7 +20,7 @@
         </div>
     </div>
 </a>
-    <a href="{{ url('') }}">
+    <a href="{{ url('list_sortie') }}">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-right-from-bracket"></i>

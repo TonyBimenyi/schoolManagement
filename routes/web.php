@@ -83,5 +83,11 @@ Route::middleware(['auth',])->group(function(){
 
 
     // END SALAIRE 
+
+    // START SORTIE
+    Route::get('list_sortie','App\Http\Controllers\SortieController@list');
+
+
+    // END SORTIE
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
