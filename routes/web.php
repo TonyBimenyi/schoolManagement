@@ -89,7 +89,8 @@ Route::middleware(['auth',])->group(function(){
     Route::get('add_sortie','App\Http\Controllers\SortieController@create_sortie');
     Route::post('insert_sortie','App\Http\Controllers\SortieController@insert_sortie');
     Route::get('edit_sortie/{id}','App\Http\Controllers\SortieController@edit_sortie');
-
+    Route::put('update_sortie/{id}','App\Http\Controllers\SortieController@update_sortie');
+    Route::get('delete_sortie/{id}','App\Http\Controllers\SortieController@delete_sortie');
     // END SORTIE
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

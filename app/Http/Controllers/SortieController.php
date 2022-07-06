@@ -13,7 +13,7 @@ class SortieController extends Controller
         $sortie=Sortie::get();
         return view('finances.sorties.list_sortie',compact('sortie'));
     }
-    public function create_sortie()
+    public function create_sortie(Request $request)
     {
         return view('finances.sorties.add_sortie');
     }
@@ -32,7 +32,23 @@ class SortieController extends Controller
     {
         $sorties=Sortie::where('id_sortie',$id)->first();
 
-        return view('finances.sorties.edit_sortie');
+        return view('finances.sorties.edit_sortie',compact('sorties'));
+    }
+    public function update_sortie(Request $request,$id)
+    {
+        $sortie=DB::table('sorties')
+        ->where('id_sortie',$id)
+        ->update(['type_sortie'=>$request->input('type'),
+                'designation_sortie'=>$request->input('designation'),
+                'montant_sortie'=>$request->input('montant')                
+    ]);
+    return redirect('list_sortie')->with('alert','Sortie a été modifié');
+    }
+    public function delete_sortie($id)
+    {
+        $sorties=Sortie::where('id_sortie',$id)->delete();
+
+        return redirect('list_sortie')->with('alert','Sortie a été supprimée');
     }
    
 }
