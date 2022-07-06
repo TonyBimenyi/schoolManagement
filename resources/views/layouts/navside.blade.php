@@ -47,11 +47,16 @@
           <li><a href="#">Staff</a></li>
         </ul>
       </li>
+
       <li>
         <div class="iocn-link">
           <a href="{{ url('cours') }}">
             <i class='bx bx-book-alt' ></i>
             <span class="link_name">Cours</span>
+
+          <a href="miverval_dash">
+            <i class='bx bx-line-chart' ></i>
+            <span class="link_name">Finances</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
@@ -62,67 +67,7 @@
           <li><a href="#">Card Design</a></li>
         </ul>
       </li>
-      <li>
-        <a href="{{ url('info_etudiant') }}">
-            <i class="fa-solid fa-graduation-cap"></i>
-          <span class="link_name">Info Etudiants</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="{{ url('info_etudiant') }}">Info Etudiants</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-line-chart' ></i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug' ></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass' ></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog' ></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
+
     <div class="profile-details">
       <div class="profile-content">
         <!--<img src="image/profile.jpg" alt="profileImg">-->
