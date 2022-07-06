@@ -12,5 +12,9 @@ class SortieController extends Controller
         $sortie=Sortie::get();
         return view('finances.sorties.list_sortie',compact('sortie'));
     }
+    public function create_sortie()
+    {
+        return view('finances.sorties.add_sortie');
+    }
    
 }

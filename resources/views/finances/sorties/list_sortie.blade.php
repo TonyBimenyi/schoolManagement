@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}">
 </head>
 <div class="container">
-    @include('layouts.top_row.utu_top')
-    @include('layouts.second_row.tea')
+    @include('layouts.top_row.fin_top')
+    @include('layouts.second_row.sort')
     <div class="table">
         <div class="table_content">
             <div class="search_row">

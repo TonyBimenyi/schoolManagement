@@ -4,7 +4,7 @@
            <a href="{{ url('list_sortie') }}"><p id="active">LISTE DES SORTIES</p></a> 
         </div>
         <div class="text">
-            <a href="{{url('')}}"><p>NOUVEAU</p></a> 
+            <a href="{{url('add_sortie')}}"><p>NOUVEAU</p></a> 
         </div>
     </div>
 </div>
