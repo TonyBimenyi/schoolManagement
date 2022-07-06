@@ -50,9 +50,9 @@
 
       <li>
         <div class="iocn-link">
-          <a href="{{ url('cours') }}">
+          {{-- <a href="{{ url('cours') }}">
             <i class='bx bx-book-alt' ></i>
-            <span class="link_name">Cours</span>
+            <span class="link_name">Cours</span> --}}
 
           <a href="miverval_dash">
             <i class='bx bx-line-chart' ></i>
