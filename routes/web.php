@@ -25,6 +25,7 @@ Route::middleware(['auth',])->group(function(){
 
     Route::get('/findProductName','App\Http\Controllers\DashboardController@findProductName');
     Route::post('/getState','App\Http\Controllers\StudentController@getState');
+    Route::post('/getName','App\Http\Controllers\FinanceController@getName');
 
     // START ADMIN
     Route::get('admin','App\Http\Controllers\AdminController@list_admin');
@@ -68,6 +69,7 @@ Route::middleware(['auth',])->group(function(){
     //START FINANCES
     Route::get('miverval_dash','App\Http\Controllers\FinanceController@index');
     Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
+    Route::get('student_list','App\Http\Controllers\FinanceController@list_etudiants');
     Route::get('add_minerval','App\Http\Controllers\FinanceController@add_minerval');
     //END FINANCES
 });
