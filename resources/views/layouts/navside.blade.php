@@ -58,7 +58,7 @@
         <ul class="sub-menu">
           <li><a class="link_name" href="{{ url('cours') }}">Cours</a></li>
           <li><a href="{{ url('cours') }}">Liste des Cours</a></li>
-          <li><a href="#">Nouveau Cours</a></li>
+          <li><a href="{{ url('create_cours') }}">Nouveau Cours</a></li>
           <li><a href="#">Card Design</a></li>
         </ul>
       </li>
