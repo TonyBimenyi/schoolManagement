@@ -77,5 +77,11 @@ Route::middleware(['auth',])->group(function(){
     Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
     Route::get('add_minerval','App\Http\Controllers\FinanceController@add_minerval');
     //END FINANCES
+
+    // START SALAIRE 
+    Route::get('salaire','App\Http\Controllers\SalaireController@index_salaire');
+
+
+    // END SALAIRE 
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

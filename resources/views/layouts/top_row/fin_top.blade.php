@@ -41,7 +41,7 @@
         </div>
     </div>
 </a>
-<a href="{{ url('') }}">
+<a href="{{ url('salaire') }}">
     <div class="menu_li">
         <div class="icon">
             <i class="fa-solid fa-hand-holding-dollar"></i>
