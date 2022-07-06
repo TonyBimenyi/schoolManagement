@@ -87,7 +87,8 @@ Route::middleware(['auth',])->group(function(){
     // START SORTIE
     Route::get('list_sortie','App\Http\Controllers\SortieController@list');
     Route::get('add_sortie','App\Http\Controllers\SortieController@create_sortie');
-
+    Route::post('insert_sortie','App\Http\Controllers\SortieController@insert_sortie');
+    Route::get('edit_sortie/{id}','App\Http\Controllers\SortieController@edit_sortie');
 
     // END SORTIE
 });

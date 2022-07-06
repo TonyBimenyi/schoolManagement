@@ -10,8 +10,9 @@
     @include('layouts.top_row.fin_top')
     @include('layouts.second_row.sort')
     <div class="form">
-        <h3 style="margin:10px 35px;color:var(--primary)">Ajouter une sortie</h3>
-        <form action="{{ url('insert_sortie') }}" method="POST">
+        <h3 style="margin:10px 35px;color:var(--primary)">Modifier une sortie</h3>
+        <form action="{{ url('edit_sortie/'.$sortie->sort) }}" method="POST">
+            @method('PUT')
             @csrf
             <div class="col">
                 <div class="row">
@@ -43,7 +44,7 @@
                                 <i class="fa-solid fa-file-pen"></i>
                             </div>
                             <div class="input">
-                                <input type="text" placeholder="designation..." name="designation" required>
+                                <input type="text" value="{{ $sort->designation_sortie }}" placeholder="designation..." name="designation" required>
                             </div>
                         </div>
                     </div>
@@ -56,14 +57,14 @@
                                 <i class="fa-solid fa-sack-dollar"></i>
                             </div>
                             <div class="input">
-                                <input type="number" placeholder="1000000..." name="montant" required>
+                                <input type="number" value="{{ $sort->montant_sortie }}" placeholder="1000000..." name="montant" required>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="button">
-                <button>Ajouter</button>
+                <button>Modifier</button>
             </div>
         </form>
     </div>
