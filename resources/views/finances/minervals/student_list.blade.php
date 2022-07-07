@@ -65,7 +65,7 @@
                                 <td>{{ $stu->sexe_etu }}</td>
                                 <td>{{ $stu->nom_fac }}</td>
                                 <td>{{ $stu->classe }}</td>
-                                <td id="btn"><a href="{{ url('attestation/'.$stu->id_etu) }}"> <button  class="edit"><i class="fa-solid fa-file-lines"></i>Ajouter Paiement</button></a></td>
+                                <td id="btn"><a href="{{ url('add_minerval/'.$stu->id_etu) }}"> <button  class="edit"><i class="fa-solid fa-file-lines"></i>Ajouter Paiement</button></a></td>
 
                         @endforeach
                     </tbody>

@@ -70,7 +70,8 @@ Route::middleware(['auth',])->group(function(){
     Route::get('miverval_dash','App\Http\Controllers\FinanceController@index');
     Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
     Route::get('student_list','App\Http\Controllers\FinanceController@list_etudiants');
-    Route::get('add_minerval','App\Http\Controllers\FinanceController@add_minerval');
+    Route::get('add_minerval/{id}','App\Http\Controllers\FinanceController@add_minerval');
+    Route::poost('insert_minerval/{id}','App\Http\Controllers\FinanceController@insert_minerval');
     //END FINANCES
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

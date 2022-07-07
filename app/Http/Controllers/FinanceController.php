@@ -25,6 +25,22 @@ class FinanceController extends Controller
         ->get();
         return view('finances.minervals.student_list',compact('faculte','students'));
     }
+    public function add_minerval($id)
+    {
+        // $student=Student::where('id_etu',$id)->first();
+        $student = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        ->where('etudiants.id_etu',$id)
+        ->first();
+        $faculte = Faculte::get();
+
+        return view('finances.minervals.add_minos',compact('faculte','student'));
+    }
+    public function insert_minerval(Type $var = null)
+    {
+        # code...
+    }
 
 
 }
