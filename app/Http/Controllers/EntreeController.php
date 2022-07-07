@@ -44,5 +44,11 @@ class EntreeController extends Controller
 
                     return redirect('entree')->with('alert','Entree a été modifié');                 
     }
+    public function delete_entree($id)
+    {
+        $entrees=Entree::where('id_entree',$id)->delete();
+
+        return redirect('entree')->with('alert','Entrée a été supprimée');
+    }
 
 }
