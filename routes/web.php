@@ -75,9 +75,10 @@ Route::middleware(['auth',])->group(function(){
 
     //START FINANCES
     Route::get('miverval_dash','App\Http\Controllers\FinanceController@index');
-    Route::get('minerval','App\Http\Controllers\FinanceController@list_minerval');
+    Route::get('list_minos','App\Http\Controllers\FinanceController@list_minerval');
     Route::get('student_list','App\Http\Controllers\FinanceController@list_etudiants');
-    Route::get('add_minerval','App\Http\Controllers\FinanceController@add_minerval');
+    Route::get('add_minerval/{id}','App\Http\Controllers\FinanceController@add_minerval');
+    Route::post('insert_minerval','App\Http\Controllers\FinanceController@insert_minerval');
     //END FINANCES
 
     // START SALAIRE 
