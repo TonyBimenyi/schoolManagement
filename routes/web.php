@@ -86,6 +86,12 @@ Route::middleware(['auth',])->group(function(){
 
     // END SALAIRE 
 
+    // START ENTREE
+    Route::get('entree','App\Http\Controllers\EntreeController@list');
+
+
+    // END ENTREE
+
     // START SORTIE
     Route::get('list_sortie','App\Http\Controllers\SortieController@list');
     Route::get('add_sortie','App\Http\Controllers\SortieController@create_sortie');

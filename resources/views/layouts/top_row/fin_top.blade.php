@@ -10,7 +10,7 @@
             </div>
         </div>
     </a>
-    <a class="" href="{{ url('') }}">
+    <a class="" href="{{ url('entree') }}">
     <div class="menu_li  {{Request::is('') ? 'active':''}}">
         <div class="icon">
             <i class="fa-solid fa-right-to-bracket"></i>

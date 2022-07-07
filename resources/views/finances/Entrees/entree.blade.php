@@ -32,17 +32,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                           @foreach ($enseignant as $ens)
+                           @foreach ($entree as $entr)
                         <tr>
-                            <td>{{ $ens->id_ens }}</td>
-                            <td>{{ $ens->nom_ens }}</td>
-                            <td>{{ $ens->prenom_ens }}</td>
-                            <td>{{ $ens->sexe_ens }}</td>
+                            <td>{{ $entr->id_entree }}</td>
+                            <td>{{ $entr->type_entree }}</td>
+                            <td>{{ $entr->designation_entree }}</td>
+                            <td>{{ $entr->montant_entree }}</td>
                             <td><button class="edit">Details</button></td>
-                           {{-- <a href=""><td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td> --}}
-
-                             <td id="btn"><a href="{{ url('edit_teacher/'.$ens->id_ens) }}"><button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></a></td>
-                            <td> <a href="{{ url('delete_teacher/'.$ens->id_ens) }}"> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></a></td>
+                             <td id="btn"><a href="{{ url('edit_entree/'.$entr->id_entree) }}"><button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></a></td>
+                            <td> <a href="{{ url('delete_entree/'.$entr->id_entree) }}"> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></a></td>
                         </tr>
                         @endforeach
                 </tbody>
