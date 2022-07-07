@@ -48,6 +48,16 @@ class FinanceController extends Controller
         $minos->save();
         return redirect('list_minos')->with('alert',"Le paiement est valide");;
     }
+    public function list_minerval()
+    {
+        $minervals = Minerval ::select(DB::raw('minervals.*,etudiants.*,facultes.*,specialisations.*'))
+        ->join('etudiants','minervals.id_etu','=','etudiants.id_etu')
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        // ->where('products.id',$id)
+        ->get();
+        return view('finances.minervals.list_minos',compact('minervals'));
+    }
 
 
 }
