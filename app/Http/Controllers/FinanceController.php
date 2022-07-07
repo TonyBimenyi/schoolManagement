@@ -7,6 +7,7 @@ use App\Models\Faculte;
 use App\Models\Admin;
 use App\Models\Student;
 use App\Models\Specialisation;
+use App\Models\Minerval;
 use DB;
 
 class FinanceController extends Controller
@@ -37,9 +38,15 @@ class FinanceController extends Controller
 
         return view('finances.minervals.add_minos',compact('faculte','student'));
     }
-    public function insert_minerval(Type $var = null)
+    public function insert_minerval(Request $request)
     {
-        # code...
+        $minos = new Minerval();
+        $minos->id_etu = $request->input('id_etu');
+        $minos->montant_paye = $request->input('montant');
+        $minos->montant_total = $request->input('montant_total');
+        $minos->tranche = $request->input('tranche');
+        $minos->save();
+        return redirect('list_minos')->with('alert',"Le paiement est valide");;
     }
 
 
