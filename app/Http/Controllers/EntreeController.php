@@ -14,4 +14,8 @@ class EntreeController extends Controller
 
         return view('finances.Entrees.entree',compact('entree'));
     }
+    public function create()
+    {
+        return view('finances.Entrees.create_entree');
+    }
 }
