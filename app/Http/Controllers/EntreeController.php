@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entree;
-
+use DB;
 
 class EntreeController extends Controller
 {
@@ -30,8 +30,19 @@ class EntreeController extends Controller
     }
     public function edit_entree($id)
     {
-        $entree=Entree::where('id_entree',$id)->first();
+        $entrees=Entree::where('id_entree',$id)->first();
 
-        return view('finances,Entrees.edit_entree',compact('entree'));
+        return view('finances.Entrees.edit_entree',compact('entrees'));
     }
+    public function update_entree(Request $request,$id)
+    {
+        $entrees=DB::table('entrees')
+        ->where('id_entree',$id)
+        ->update(['type_entree'=>$request->input('type'),
+                    'designation_entree'=>$request->input('designation'),
+                    'montant_entree'=>$request->input('montant')]);
+
+                    return redirect('entree')->with('alert','Entree a été modifié');                 
+    }
+
 }
