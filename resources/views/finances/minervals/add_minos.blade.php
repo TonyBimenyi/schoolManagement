@@ -24,6 +24,7 @@
                 @method('POST')
                 @csrf
                 <input type="hidden" name="id_etu" value="{{ $student->id_etu }}">
+                <input type="hidden" name="id_min" value="{{ $student->id_min }}">
                 <div class="col">
                     <div class="row">
                         <div class="input_row">

@@ -8,6 +8,7 @@ use App\Models\Admin;
 use App\Models\Student;
 use App\Models\Specialisation;
 use App\Models\Minerval;
+use App\Models\Stats;
 use DB;
 
 class FinanceController extends Controller
@@ -46,8 +47,14 @@ class FinanceController extends Controller
         $minos->montant_total = $request->input('montant_total');
         $minos->tranche = $request->input('tranche');
         $minos->save();
-        return redirect('list_minos')->with('alert',"Le paiement est valide");;
+        $stat = new Stats();
+        $stat->type_revenu = 'Minerval';
+        $stat->montant_revenu = $request->input('montant');
+        $stat->id_minerval = $request->input('id_min');
+        $stat->save();
+        return redirect('list_minos')->with('alert',"Le paiement est valide");
     }
+
     public function list_minerval()
     {
         $minervals = Minerval ::select(DB::raw('minervals.*,etudiants.*,facultes.*,specialisations.*'))
