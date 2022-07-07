@@ -89,6 +89,7 @@ Route::middleware(['auth',])->group(function(){
     // START ENTREE
     Route::get('entree','App\Http\Controllers\EntreeController@list');
     Route::get('create_entree','App\Http\Controllers\EntreeController@create');
+    Route::post('insert_entree','App\Http\Controllers\EntreeController@insert');
 
     // END ENTREE
 

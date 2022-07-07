@@ -11,7 +11,8 @@
     @include('layouts.second_row.entr')
     <div class="form">
         <h3 style="margin:10px 35px;color:var(--primary)">Ajouter une entree</h3>
-        <form action="">
+        <form action="{{ url('insert_entree') }}" method="POST">
+            @csrf
             <div class="col">
                 <div class="row">
                     <div class="input_row">
