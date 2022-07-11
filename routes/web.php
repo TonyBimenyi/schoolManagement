@@ -83,6 +83,7 @@ Route::middleware(['auth',])->group(function(){
 
     // START SALAIRE
     Route::get('salaire','App\Http\Controllers\SalaireController@index_salaire');
+    Route::post('insert_salaire','App\Http\Controllers\SalaireController@insert_salaire');
 
 
     // END SALAIRE
