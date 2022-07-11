@@ -19,6 +19,7 @@
                         <div class="labels">
                             <label for="">Type de Sortie</label>
                         </div>
+                        <input type="hidden" name="id" value="{{ rand(100,999999) }}">
                         <div class="input_group">
                             <div class="icon">
                                 <i class="fa-solid fa-bars"></i>
