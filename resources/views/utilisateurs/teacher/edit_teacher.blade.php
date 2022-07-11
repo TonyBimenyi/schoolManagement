@@ -13,7 +13,7 @@
     @include('layouts.top_row.utu_top')
   @include('layouts.second_row.tea')
   <div class="form">
-    <h3 style="margin:10px 35px;color:var(--primary)">Modifier un enseignant</h3>
+    <h3 style="margin:10px 35px;color:var(--primary)">Modifier l'enseignant: {{ $teacher->nom_ens }}  {{ $teacher->prenom_ens }}</h3>
     <form action="{{ url('update_teacher/'.$teacher->id_ens) }}" method="POST">
         @method('PUT')
        @csrf

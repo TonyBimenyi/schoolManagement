@@ -27,7 +27,7 @@
                         <th>TYPE ENTREE</th>
                         <th>DESIGNATION</th>
                         <th>MONTANT</th>
-                        <th colspan="3">OPTIONS</th>
+                        <th colspan="2">OPTIONS</th>
 
                     </tr>
                 </thead>
@@ -38,7 +38,6 @@
                             <td>{{ $entr->type_entree }}</td>
                             <td>{{ $entr->designation_entree }}</td>
                             <td>{{ $entr->montant_entree }}</td>
-                            <td><button class="edit">Details</button></td>
                              <td id="btn"><a href="{{ url('edit_entree/'.$entr->id_entree) }}"><button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></a></td>
                             <td> <a href="{{ url('delete_entree/'.$entr->id_entree) }}"> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></a></td>
                         </tr>
