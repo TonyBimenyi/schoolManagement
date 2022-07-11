@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Personnel;
 use App\Models\Stats;
+use App\Models\Salaire;
 
 class SalaireController extends Controller
 {
@@ -17,7 +18,10 @@ class SalaireController extends Controller
     {
 
         $salaire = new Salaire();
-        $student->nom_etu = $request->input('nom');
-        $student->prenom_etu = $request->input('prenom');
+        $salaire->id_salaire = $request->input('id_salaire');
+        $salaire->nom_personnel = $request->input('nom');
+        $salaire->montant_salaire = $request->input('montant');
+        $salaire->save();
+        return redirect('list_minos')->with('alert',"Le Salaire est ajoute");
     }
 }
