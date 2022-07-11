@@ -26,7 +26,7 @@
                             <th>TYPE SORTIE</th>
                             <th>DESIGNATION</th>
                             <th>MONTANT</th>
-                            <th colspan="3">OPTIONS</th>
+                            <th colspan="2">OPTIONS</th>
 
                         </tr>
                     </thead>
@@ -37,9 +37,6 @@
                                 <td>{{ $sort->type_sortie }}</td>
                                 <td>{{ $sort->designation_sortie }}</td>
                                 <td>{{ $sort->montant_sortie }}</td>
-                                <td><button class="edit">Details</button></td>
-                               {{-- <a href=""><td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td> --}}
-
                                  <td id="btn"><a href="{{ url('edit_sortie/'.$sort->id_sortie) }}"><button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></a></td>
                                 <td> <a href="{{ url('delete_sortie/'.$sort->id_sortie) }}"> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></a></td>
                             </tr>

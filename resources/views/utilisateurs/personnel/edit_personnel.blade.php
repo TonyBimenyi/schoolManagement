@@ -13,7 +13,7 @@
     @include('layouts.top_row.utu_top')
     @include('layouts.second_row.pers')
     <div class="form">
-        <h3 style="margin:10px 35px;color:var(--primary)">Modifier un personnel</h3>
+        <h3 style="margin:10px 35px;color:var(--primary)">Modifier le personnel: {{ $personnel->nom_personnel }}  {{ $personnel->prenom_personnel }}</h3>
         <form action="{{ url('update_personnel/'.$personnel->id_personnel) }}" method="POST">
             @method('PUT')
       @csrf
@@ -97,7 +97,7 @@
                 </div>
                 <div class="input_group">
                     <div class="icon">
-                        <i class="fa-solid fa-mars-and-venus"></i>
+                        <i class="fa-solid fa-user-doctor"></i>
                     </div>
                     <div class="select">
                         <select name="fonction" id="">
@@ -117,7 +117,7 @@
                 </div>
                 <div class="input_group">
                     <div class="icon">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
                     </div>
                     <div class="input">
                         <input type="text" value="{{ $personnel->salaire }}" name="salaire" placeholder="Salaire..." required>
