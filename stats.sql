@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2022 at 11:38 AM
+-- Generation Time: Jul 11, 2022 at 06:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -35,8 +35,8 @@ CREATE TABLE `stats` (
   `type_revenu` varchar(355) DEFAULT NULL,
   `montant_revenu` double DEFAULT NULL,
   `date_revenu` timestamp NULL DEFAULT NULL,
-  `id_entree` int(11) DEFAULT NULL,
-  `id_sortie` int(11) DEFAULT NULL,
+  `id_entree` varchar(255) DEFAULT NULL,
+  `id_sortie` varchar(255) DEFAULT NULL,
   `id_salaire` int(11) DEFAULT NULL,
   `id_minerval` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -49,7 +49,11 @@ CREATE TABLE `stats` (
 
 INSERT INTO `stats` (`id_stat`, `type_depense`, `montant_depense`, `date_depense`, `type_revenu`, `montant_revenu`, `date_revenu`, `id_entree`, `id_sortie`, `id_salaire`, `id_minerval`, `created_at`, `updated_at`) VALUES
 (1, NULL, NULL, NULL, 'Minerval', 3, NULL, NULL, NULL, NULL, NULL, '2022-07-07 17:50:55', '2022-07-07 17:50:55'),
-(2, NULL, NULL, NULL, 'Minerval', 250000, NULL, NULL, NULL, NULL, NULL, '2022-07-07 17:51:22', '2022-07-07 17:51:22');
+(2, NULL, NULL, NULL, 'Minerval', 250000, NULL, NULL, NULL, NULL, NULL, '2022-07-07 17:51:22', '2022-07-07 17:51:22'),
+(3, NULL, NULL, NULL, 'approvisionnement', 120000, NULL, NULL, NULL, NULL, NULL, '2022-07-11 07:48:59', '2022-07-11 07:48:59'),
+(4, NULL, NULL, NULL, 'salaire', 12500, NULL, NULL, NULL, NULL, NULL, '2022-07-11 08:01:14', '2022-07-11 08:01:14'),
+(6, NULL, NULL, NULL, 'achat', 1200000, NULL, '501639', NULL, NULL, NULL, '2022-07-11 08:20:22', '2022-07-11 08:20:22'),
+(7, 'achat', 35000, NULL, NULL, NULL, NULL, NULL, '901405', NULL, NULL, '2022-07-11 08:50:06', '2022-07-11 08:50:06');
 
 --
 -- Indexes for dumped tables
@@ -73,7 +77,7 @@ ALTER TABLE `stats`
 -- AUTO_INCREMENT for table `stats`
 --
 ALTER TABLE `stats`
-  MODIFY `id_stat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_stat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -83,10 +87,10 @@ ALTER TABLE `stats`
 -- Constraints for table `stats`
 --
 ALTER TABLE `stats`
-  ADD CONSTRAINT `stats_ibfk_1` FOREIGN KEY (`id_entree`) REFERENCES `entrees` (`id_entree`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `stats_ibfk_2` FOREIGN KEY (`id_sortie`) REFERENCES `sorties` (`id_sortie`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `stats_ibfk_3` FOREIGN KEY (`id_minerval`) REFERENCES `minervals` (`id_min`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `stats_ibfk_4` FOREIGN KEY (`id_salaire`) REFERENCES `salaires` (`id_salaire`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `stats_ibfk_4` FOREIGN KEY (`id_salaire`) REFERENCES `salaires` (`id_salaire`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `stats_ibfk_5` FOREIGN KEY (`id_entree`) REFERENCES `entrees` (`id_entree`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `stats_ibfk_6` FOREIGN KEY (`id_sortie`) REFERENCES `sorties` (`id_sortie`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

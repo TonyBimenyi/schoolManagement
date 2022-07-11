@@ -12,8 +12,10 @@ class EntreeController extends Controller
     public function list()
     {
         $entree=Entree::get();
+        $sum=Entree::select(DB::raw('SUM(montant_entree) as total'));
 
-        return view('finances.Entrees.entree',compact('entree'));
+
+        return view('finances.Entrees.entree',compact('entree','sum'));
     }
     public function create()
     {

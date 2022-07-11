@@ -42,6 +42,17 @@
                             <td> <a href="{{ url('delete_entree/'.$entr->id_entree) }}"> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></a></td>
                         </tr>
                         @endforeach
+                        @foreach ($sum as $su)
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total:</td>
+                            <td>{{ $su->total }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        @endforeach
+                        
                 </tbody>
             </table>
         </div>
