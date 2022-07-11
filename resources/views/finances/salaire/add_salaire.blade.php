@@ -26,10 +26,10 @@
                                 <select required class="fac" name="faculte" id="country">
                                     <option value="" selected="true" disabled="true">--Selectionner le personnel---</option>
                                     @foreach ($personnel as $pers)
-                                        <option value="{{ $pers->id_personnel }}">{{ $pers->nom_personnel }}</option>
+                                        <option value="{{ $pers->fonction }}">{{ $pers->nom_personnel }}</option>
                                     @endforeach
                                 </select>
-    
+
                             </div>
                         </div>
                     </div>
@@ -41,8 +41,11 @@
                             <div class="icon">
                                 <i class="fa-solid fa-hand-holding-dollar"></i>
                             </div>
-                            <div class="input">
-                                <input type="text" name="salaire" placeholder="Salaire..." required readonly>
+                            <div class="select">
+                                <select name="specialisation" id="state">
+                                    <option value="" required disabled>--La faculte d'abord---</option>
+
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -54,4 +57,36 @@
         </form>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    jQuery(document).ready(function(){
+        jQuery('#country').change(function(){
+            let cid=jQuery(this).val();
+            // jQuery.ajax({
+            //     url:'/getState',
+            //     type:'post',
+            //     data:'cid='+cid+'_token={{ csrf_token() }}',
+            //     success:function(result){
+            //         jQuery('#state').html(result)
+            //     }
+            // })
+            $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+        });
+        $.ajax({
+            method:"POST",
+            url:"/getState",
+            data:{
+            'cid':cid,
+            "_token": "{{ csrf_token() }}",
+            },
+            success:function(result){
+                    jQuery('#state').html(result);
+                }
+        })
+        })
+    })
+</script>
 @endsection
