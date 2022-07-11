@@ -66,7 +66,12 @@
                                 <td id="btn"><a href="">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
                                 <td> <a href=""><button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></a></td>
                                 @endforeach
-
+                            </tr>
+                            <tr>
+                                <td style="background-color: var(--primary);color:white;">TOTAL</td>
+                                <td colspan="2"></td>
+                                <td>{{ number_format($sum) }} Fbu</td>
+                            </tr>
                     </tbody>
                 </table>
             </div>

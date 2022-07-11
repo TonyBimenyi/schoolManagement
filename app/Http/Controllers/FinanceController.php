@@ -63,7 +63,14 @@ class FinanceController extends Controller
         ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
         // ->where('products.id',$id)
         ->get();
-        return view('finances.minervals.list_minos',compact('minervals'));
+
+        $sum = Minerval::sum('montant_paye');
+        return view('finances.minervals.list_minos',compact('minervals','sum'));
+
+    }
+    public function stats(Request $request)
+    {
+        return view('finances.stats.stats');
     }
 
 

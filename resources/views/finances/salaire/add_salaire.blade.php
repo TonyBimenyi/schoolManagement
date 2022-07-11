@@ -29,7 +29,7 @@
                                         <option value="{{ $pers->fonction }}">{{ $pers->nom_personnel }} {{ $pers->prenom_personnel }}</option>
                                     @endforeach
                                 </select>
-
+                                <input type="hidden" name="id" value="{{ rand(100,999999) }}">
                             </div>
                         </div>
                     </div>

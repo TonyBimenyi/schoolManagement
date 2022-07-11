@@ -51,7 +51,7 @@
         </div>
     </div>
     </a>
-    <a href="{{ url('') }}">
+    <a href="{{ url('stats') }}">
         <div class="menu_li">
             <div class="icon">
                 <i class="fa-solid fa-chart-bar"></i>

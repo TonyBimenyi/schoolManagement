@@ -16,5 +16,8 @@ class SalaireController extends Controller
     public function insert_salaire(request $request)
     {
 
+        $salaire = new Salaire();
+        $student->nom_etu = $request->input('nom');
+        $student->prenom_etu = $request->input('prenom');
     }
 }
