@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Entree;
+use App\Models\Stats;
 use DB;
 
 class EntreeController extends Controller
@@ -21,10 +22,17 @@ class EntreeController extends Controller
     public function insert(Request $request)
     {
         $entrees=new Entree();
+        $entrees->id_entree=$request->input('id');
         $entrees->type_entree=$request->input('type');
         $entrees->designation_entree=$request->input('designation');
         $entrees->montant_entree=$request->input('montant');
+        $entrees->id_min='1';
         $entrees->save();
+        $stat = new Stats();
+        $stat->id_entree=$request->input('id');
+        $stat->type_revenu=$request->input('type');
+        $stat->montant_revenu=$request->input('montant');
+        $stat->save();
 
         return redirect('entree')->with('alert', 'Entrée enregistré avec succès');
     }
@@ -41,6 +49,10 @@ class EntreeController extends Controller
         ->update(['type_entree'=>$request->input('type'),
                     'designation_entree'=>$request->input('designation'),
                     'montant_entree'=>$request->input('montant')]);
+        $stats=DB::table('stats')
+        ->where('id_entree',$id)
+        ->update(['type_revenu'=>$request->input('type'),
+                    'montant_revenu'=>$request->input('montant')]);
 
                     return redirect('entree')->with('alert','Entree a été modifié');                 
     }
@@ -48,6 +60,7 @@ class EntreeController extends Controller
     {
         $entrees=Entree::where('id_entree',$id)->delete();
 
+        $stats=Stats::where('id_entree',$id)->delete();
         return redirect('entree')->with('alert','Entrée a été supprimée');
     }
 

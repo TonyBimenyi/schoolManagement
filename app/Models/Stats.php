@@ -10,6 +10,7 @@ class Stats extends Model
     use HasFactory;
     protected $table = 'stats';
     protected $fillable = [
+        'id_stat',
         'type_depense',
         'montant_depense',
         'type_revenu',

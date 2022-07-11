@@ -15,6 +15,7 @@
             @csrf
             <div class="col">
                 <div class="row">
+                    <input type="hidden" name="id" value="{{ rand(100,999999) }}">
                     <div class="input_row">
                         <div class="labels">
                             <label for="">Type d' Entree</label>
