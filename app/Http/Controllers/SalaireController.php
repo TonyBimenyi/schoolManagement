@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Personnel;
+use App\Models\Stats;
 
 class SalaireController extends Controller
 {
@@ -12,15 +13,8 @@ class SalaireController extends Controller
         $personnel=Personnel::get();
         return view('finances.salaire.add_salaire',compact('personnel'));
     }
-    public function getState(Request $request)
+    public function insert_salaire(request $request)
     {
-        $cid= $request->post('cid');
-        $state=DB::table('personnel')->where('fonction',$cid)
-        ->get();
 
-        foreach($state as $list){
-          $html.= '<option value="'.$list->salaire.'">'.$list->salaire.'</option>';
-         }
-    echo $html;
     }
 }

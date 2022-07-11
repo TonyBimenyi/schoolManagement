@@ -23,10 +23,10 @@
                                 <i class="fa-solid fa-book"></i>
                             </div>
                             <div class="select">
-                                <select required class="fac" name="faculte" id="country">
+                                <select required class="fac" name="nom" id="country">
                                     <option value="" selected="true" disabled="true">--Selectionner le personnel---</option>
                                     @foreach ($personnel as $pers)
-                                        <option value="{{ $pers->fonction }}">{{ $pers->nom_personnel }}</option>
+                                        <option value="{{ $pers->fonction }}">{{ $pers->nom_personnel }} {{ $pers->prenom_personnel }}</option>
                                     @endforeach
                                 </select>
 
@@ -41,11 +41,8 @@
                             <div class="icon">
                                 <i class="fa-solid fa-hand-holding-dollar"></i>
                             </div>
-                            <div class="select">
-                                <select name="specialisation" id="state">
-                                    <option value="" required disabled>--La faculte d'abord---</option>
-
-                                </select>
+                            <div class="input">
+                                <input type="number" name="salaire" placeholder="Salaire..." required>
                             </div>
                         </div>
                     </div>
