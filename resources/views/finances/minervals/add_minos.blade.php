@@ -23,8 +23,9 @@
             <form action="{{ url('insert_minerval') }}" method="POST">
                 @method('POST')
                 @csrf
+                <input type="hidden" name="id_entree" value="min-{{ rand(10,9999999) }}">
                 <input type="hidden" name="id_etu" value="{{ $student->id_etu }}">
-                <input type="hidden" name="id_min" value="{{ $student->id_min }}">
+                <input type="hidden" name="nom" value="{{ $student->nom_etu }} {{ $student->prenom_etu }}">
                 <div class="col">
                     <div class="row">
                         <div class="input_row">
@@ -42,21 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="input_row">
-                            <div class="labels">
-                                <label for="">Montant total a Payee</label>
-                            </div>
-                        </div>
-                        <div class="input_row">
-                            <div class="input_group">
-                                <div class="icon">
-                                    <i class="fa-solid fa-calendar-days"></i>
-                                </div>
-                                <div class="input">
-                                    <input name="montant_total" required type="text" placeholder="Montant Total...">
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
 
                         <div class="row">
