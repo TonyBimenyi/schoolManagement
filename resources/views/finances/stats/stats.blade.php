@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="{{asset('frontend/css/modal.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/form.css')}}">
 </head>
+@php
+    $aho_tugeze = 30000000;
+@endphp
 <div class="container">
     @include('layouts.top_row.fin_top')
     <div class="table">
@@ -15,27 +18,67 @@
                 <table>
                     <thead>
                         <tr class="title_bar">
-                            <th>MATRICULE</th>
-                            <th>NOM</th>
-                            <th>PRENOM</th>
-                            <th>DATE DE NAISSANCE</th>
-                            <th>ADDRESS</th>
-                            <TH>A/A</TH>
-                            <TH>SEXE</TH>
-                            <TH>FACULTE</TH>
-                            <TH>CLASSE</TH>
-                            <th colspan="3">OPTIONS</th>
+
+                            <th>DATE</th>
+                            <th>TYPE DEPENSE</th>
+                            <th>TYPE REVENU</th>
+                            <th>DEPENSE</th>
+                            <TH>REVENU</TH>
+                            <TH>SOLDE</TH>
                         </tr>
                     </thead>
                     <tbody>
 
+                            <tr>
+
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>Rapport</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>{{ number_format(30000000)}} Fbu</td>
+                            </tr>
+                            @foreach ($stats as $s)
 
                             <tr id="table">
-
-                                <td></td>
-                                <td></td>
+                                <td>
+                                 {{ $s->created_at }}
+                                </td>
+                                <td>
+                                    @if ($s->type_depense=="")
+                                        {{ '-' }}
+                                    @else
+                                        {{ $s->type_depense }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($s->type_revenu=="")
+                                    {{ '-' }}
+                                    @else
+                                        {{ $s->type_revenu }}
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($s->montant_depense=="")
+                                    {{ '-' }}
+                                    @else
+                                        {{ number_format($s->montant_depense) }} Fbu
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($s->montant_revenu=="")
+                                    {{ '-' }}
+                                    @else
+                                        {{ number_format($s->montant_revenu) }} Fbu
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ number_format(30000000+$s->montant_revenu-$s->montant_depense) }} Fbu
+                                </td>
 
                             </tr>
+
+                            @endforeach
 
                     </tbody>
                 </table>

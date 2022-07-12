@@ -75,7 +75,9 @@ class FinanceController extends Controller
     }
     public function stats(Request $request)
     {
-        return view('finances.stats.stats');
+        $stats = Stats::select(DB::raw('stats.*'))
+        ->get();
+        return view('finances.stats.stats',compact('stats'));
     }
 
 
