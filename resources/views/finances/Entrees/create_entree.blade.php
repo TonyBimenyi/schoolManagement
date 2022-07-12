@@ -30,7 +30,7 @@
                                     <option value="achat">Dons</option>
                                     <option value="approvisionnement">Approvisionnement</option>
                                     <option value="paiement">Paiement</option>
-                                    <option value="salaire">Salaire</option>
+                                    <option value="minerval">Minerval</option>
                                 </select>
                             </div>
                         </div>
