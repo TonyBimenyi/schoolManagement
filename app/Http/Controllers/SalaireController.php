@@ -7,6 +7,7 @@ use App\Models\Personnel;
 use App\Models\Stats;
 use App\Models\Sortie;
 use App\Models\Salaire;
+use DB;
 
 class SalaireController extends Controller
 {
@@ -17,7 +18,11 @@ class SalaireController extends Controller
     }
     public function list_salaire()
     {
-        return view('finances.salaire.list_salaire');
+        $salaire = Sortie ::select(DB::raw('sorties.*,personnel.*'))
+        ->join('personnel','sorties.id_personnel','=','personnel.id_personnel')
+        ->where('type_sortie','Salaire')
+        ->get();
+        return view('finances.salaire.list_salaire',compact('salaire'));
     }
     public function insert_salaire(request $request)
     {
