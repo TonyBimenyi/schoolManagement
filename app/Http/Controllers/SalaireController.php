@@ -15,29 +15,29 @@ class SalaireController extends Controller
         $personnel=Personnel::get();
         return view('finances.salaire.add_salaire',compact('personnel'));
     }
+    public function list_salaire()
+    {
+        return view('finances.salaire.list_salaire');
+    }
     public function insert_salaire(request $request)
     {
 
-        $salaire = new Salaire();
-        $salaire->id_salaire = $request->input('id_salaire');
-        $salaire->nom_personnel = $request->input('nom');
-        $salaire->montant_salaire = $request->input('salaire');
-        $salaire->save();
+
 
         $sortie = new Sortie();
         $sortie->type_sortie = 'Salaire';
-        $sortie->id_sortie = 'so'.rand(10,999999);
-        $sortie->designation_sortie = $request->input('nom');
+        $sortie->id_sortie = $request->input('id_sortie');
+        $sortie->designation_sortie = 'Salaire d un personnel';
         $sortie->montant_sortie = $request->input('salaire');
-        $sortie->id_salaire = $request->input('id_salaire');
+        $sortie->id_personnel = $request->input('id_personnel');
         $sortie->save();
 
         $stats = new Stats();
         $stats->type_depense = 'Salaire';
+        $sortie->id_sortie = $request->input('id_sortie');
         $stats->montant_depense = $request->input('salaire');
-        $stats->id_salaire = $request->input('id_salaire');
         $stats->save();
 
-        return redirect('add_salaire')->with('alert',"Le Salaire est ajoute");
+        return redirect('list_salaire')->with('alert',"Le Salaire est ajoute");
     }
 }
