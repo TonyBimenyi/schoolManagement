@@ -44,7 +44,6 @@
                             <th>NOM</th>
                             <th>PRENOM</th>
                             <th>MONTANT PAYE</th>
-                            <th>RESTE</th>
                             <th>TRANCHE</th>
                             <TH>FACULTE</TH>
                             <TH>CLASSE</TH>
@@ -58,8 +57,7 @@
                                 <td>CO-{{ $minos->promotion }}-{{ $minos->id_etu }}</td>
                                 <td>{{ $minos->nom_etu }}</td>
                                 <td>{{ $minos->prenom_etu }}</td>
-                                <td>{{ number_format($minos->montant_paye) }} Fbu</td>
-                                <td>{{ $minos->montant_total-$minos->montant_paye }} Fbu</td>
+                                <td>{{ number_format($minos->montant_entree) }} Fbu</td>
                                 <td>{{ $minos->tranche }} e tranche</td>
                                 <td>{{ $minos->nom_fac }}</td>
                                 <td>{{ $minos->classe }}</td>

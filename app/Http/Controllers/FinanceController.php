@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\Specialisation;
 use App\Models\Minerval;
 use App\Models\Stats;
+use App\Models\Entree;
 use DB;
 
 class FinanceController extends Controller
@@ -57,14 +58,14 @@ class FinanceController extends Controller
 
     public function list_minerval()
     {
-        $minervals = Minerval ::select(DB::raw('minervals.*,etudiants.*,facultes.*,specialisations.*'))
-        ->join('etudiants','minervals.id_etu','=','etudiants.id_etu')
+        $minervals = Entree ::select(DB::raw('entrees.*,etudiants.*,facultes.*,specialisations.*'))
+        ->join('etudiants','entrees.id_etu','=','etudiants.id_etu')
         ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
         ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
-        // ->where('products.id',$id)
+        // ->where('type',$id)
         ->get();
 
-        $sum = Minerval::sum('montant_paye');
+        $sum = Entree::sum('montant_entree');
         return view('finances.minervals.list_minos',compact('minervals','sum'));
 
     }
