@@ -11,7 +11,7 @@ class Salaire extends Model
     protected $table = 'salaires';
     protected $fillable = [
         'id_salaire',
-        'id_personnel',
+        'nom_personnel',
         'montant_salaire'
     ];
 }

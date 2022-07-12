@@ -9,6 +9,7 @@ use App\Models\Student;
 use App\Models\Specialisation;
 use App\Models\Minerval;
 use App\Models\Stats;
+use App\Models\Entree;
 use DB;
 
 class FinanceController extends Controller
@@ -41,29 +42,42 @@ class FinanceController extends Controller
     }
     public function insert_minerval(Request $request)
     {
-        $minos = new Minerval();
+        $minos = new Entree();
+
+
+        $minos->type_entree = 'Minerval';
+        $minos->id_entree = $request->input('id_entree');
+        $minos->designation_entree = $request->input('nom');
+        $minos->montant_entree = $request->input('montant');
         $minos->id_etu = $request->input('id_etu');
-        $minos->montant_paye = $request->input('montant');
-        $minos->montant_total = $request->input('montant_total');
         $minos->tranche = $request->input('tranche');
         $minos->save();
         $stat = new Stats();
         $stat->type_revenu = 'Minerval';
         $stat->montant_revenu = $request->input('montant');
-        $stat->id_minerval = $request->input('id_min');
+        $stat->id_entree = $request->input('id_entree');
         $stat->save();
         return redirect('list_minos')->with('alert',"Le paiement est valide");
     }
 
     public function list_minerval()
     {
-        $minervals = Minerval ::select(DB::raw('minervals.*,etudiants.*,facultes.*,specialisations.*'))
-        ->join('etudiants','minervals.id_etu','=','etudiants.id_etu')
+        $minervals = Entree ::select(DB::raw('entrees.*,etudiants.*,facultes.*,specialisations.*'))
+        ->join('etudiants','entrees.id_etu','=','etudiants.id_etu')
         ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
         ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
-        // ->where('products.id',$id)
+        ->where('type_entree','Minerval')
         ->get();
-        return view('finances.minervals.list_minos',compact('minervals'));
+
+        $sum = Entree::sum('montant_entree');
+        return view('finances.minervals.list_minos',compact('minervals','sum'));
+
+    }
+    public function stats(Request $request)
+    {
+        $stats = Stats::select(DB::raw('stats.*'))
+        ->get();
+        return view('finances.stats.stats',compact('stats'));
     }
 
 

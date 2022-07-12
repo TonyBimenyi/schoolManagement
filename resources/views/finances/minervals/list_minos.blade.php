@@ -44,7 +44,6 @@
                             <th>NOM</th>
                             <th>PRENOM</th>
                             <th>MONTANT PAYE</th>
-                            <th>RESTE</th>
                             <th>TRANCHE</th>
                             <TH>FACULTE</TH>
                             <TH>CLASSE</TH>
@@ -58,15 +57,19 @@
                                 <td>CO-{{ $minos->promotion }}-{{ $minos->id_etu }}</td>
                                 <td>{{ $minos->nom_etu }}</td>
                                 <td>{{ $minos->prenom_etu }}</td>
-                                <td>{{ number_format($minos->montant_paye) }} Fbu</td>
-                                <td>{{ $minos->montant_total-$minos->montant_paye }} Fbu</td>
+                                <td>{{ number_format($minos->montant_entree) }} Fbu</td>
                                 <td>{{ $minos->tranche }} e tranche</td>
                                 <td>{{ $minos->nom_fac }}</td>
                                 <td>{{ $minos->classe }}</td>
                                 <td id="btn"><a href="">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
                                 <td> <a href=""><button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></a></td>
                                 @endforeach
-
+                            </tr>
+                            <tr>
+                                <td style="background-color: var(--primary);color:white;">TOTAL</td>
+                                <td colspan="2"></td>
+                                <td>{{ number_format($sum) }} Fbu</td>
+                            </tr>
                     </tbody>
                 </table>
             </div>

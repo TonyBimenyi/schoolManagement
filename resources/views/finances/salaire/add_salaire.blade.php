@@ -11,7 +11,9 @@
     @include('layouts.second_row.sal')
     <div class="form">
         <h3 style="margin:10px 35px;color:var(--primary)">Ajouter un salaire</h3>
-        <form action="">
+        <form action="{{ url('insert_salaire') }}" method="POST">
+            @method('POST')
+            @csrf
             <div class="col">
                 <div class="row">
                     <div class="input_row">
@@ -23,13 +25,13 @@
                                 <i class="fa-solid fa-book"></i>
                             </div>
                             <div class="select">
-                                <select required class="fac" name="nom" id="country">
+                                <select required class="fac" name="id_personnel" id="country">
                                     <option value="" selected="true" disabled="true">--Selectionner le personnel---</option>
                                     @foreach ($personnel as $pers)
-                                        <option value="{{ $pers->fonction }}">{{ $pers->nom_personnel }} {{ $pers->prenom_personnel }}</option>
+                                        <option value="{{ $pers->id_personnel }}">{{ $pers->nom_personnel }} {{ $pers->prenom_personnel }}</option>
                                     @endforeach
                                 </select>
-
+                                <input type="hidden" name="id_sortie" value="sa-{{ rand(100,999999) }}">
                             </div>
                         </div>
                     </div>

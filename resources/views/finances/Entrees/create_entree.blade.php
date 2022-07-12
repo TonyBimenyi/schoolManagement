@@ -27,7 +27,7 @@
                             <div class="select">
                                 <select name="type" id="">
                                     <option value="" disabled>--Selectionner L'Entree---</option>
-                                    <option value="achat">Achat</option>
+                                    <option value="achat">Dons</option>
                                     <option value="approvisionnement">Approvisionnement</option>
                                     <option value="paiement">Paiement</option>
                                     <option value="minerval">Minerval</option>

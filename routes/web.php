@@ -81,11 +81,13 @@ Route::middleware(['auth',])->group(function(){
     Route::post('insert_minerval','App\Http\Controllers\FinanceController@insert_minerval');
     //END FINANCES
 
-    // START SALAIRE 
+    // START SALAIRE
     Route::get('salaire','App\Http\Controllers\SalaireController@index_salaire');
+    Route::get('list_salaire','App\Http\Controllers\SalaireController@list_salaire');
+    Route::post('insert_salaire','App\Http\Controllers\SalaireController@insert_salaire');
 
 
-    // END SALAIRE 
+    // END SALAIRE
 
     // START ENTREE
     Route::get('entree','App\Http\Controllers\EntreeController@list');
@@ -105,5 +107,9 @@ Route::middleware(['auth',])->group(function(){
     Route::put('update_sortie/{id}','App\Http\Controllers\SortieController@update_sortie');
     Route::get('delete_sortie/{id}','App\Http\Controllers\SortieController@delete_sortie');
     // END SORTIE
+
+    //START STATS
+    Route::get('stats','App\Http\Controllers\FinanceController@stats');
+    //ENS STATS
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
