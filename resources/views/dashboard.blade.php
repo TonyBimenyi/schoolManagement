@@ -98,7 +98,7 @@
                         <span class="data-list">Member</span>
                         <span class="data-list">New</span>
                         <span class="data-list">Member</span>
-                        <span class="data-list">New</span>
+                       
                         <span class="data-list">Member</span>
                     </div>
 
