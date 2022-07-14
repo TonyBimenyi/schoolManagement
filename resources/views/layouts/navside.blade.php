@@ -42,9 +42,9 @@
         <ul class="sub-menu">
           <li><a class="link_name" href="{{url('admin')}}">Utilisateurs</a></li>
           <li><a href="{{url('admin')}}">Admins</a></li>
-          <li><a href="#">Etudiants</a></li>
-          <li><a href="#">Enseignants</a></li>
-          <li><a href="#">Staff</a></li>
+          <li><a href="{{ url('student') }}">Etudiants</a></li>
+          <li><a href="{{ url('teacher') }}">Enseignants</a></li>
+          <li><a href="{{ url('personnel') }}">Staff</a></li>
         </ul>
       </li>
 
@@ -61,10 +61,11 @@
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" href="{{ url('cours') }}">Cours</a></li>
-          <li><a href="{{ url('cours') }}">Liste des Cours</a></li>
-          <li><a href="{{ url('create_cours') }}">Nouveau Cours</a></li>
-          <li><a href="#">Card Design</a></li>
+          <li><a class="link_name" href="{{ url('entree') }}">Entrees</a></li>
+          <li><a href="{{ url('list_sortie') }}">Sorties</a></li>
+          <li><a href="{{ url('list_minos') }}">Minervals</a></li>
+          <li><a href="{{ url('list_salaire') }}">Salaire</a></li>
+          <li><a href="{{ url('stats') }}">Statistiques</a></li>
         </ul>
       </li>
 
