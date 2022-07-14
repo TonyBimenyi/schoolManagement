@@ -48,7 +48,7 @@
                     <div class="box box2">
                         <i class="fa-solid fa-right-to-bracket"></i>
                         <span class="text">Revenus</span>
-                        <span class="number">20.453.540 Fbu</span>
+                        <span class="number">{{ number_format($sum_rev) }} Fbu</span>
                     </div>
 
                 </div>
