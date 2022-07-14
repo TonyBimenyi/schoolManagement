@@ -62,43 +62,28 @@
 
                 <div class="activity-data">
                     <div class="data names">
-                        <span class="data-title">Nom et Prenom</span>
-                        <span class="data-list">Prem Shahi</span>
-                        <span class="data-list">Deepa Chand</span>
-                        <span class="data-list">Manisha Chand</span>
-                        <span class="data-list">Pratima Shahi</span>
-                        <span class="data-list">Man Shahi</span>
-                        <span class="data-list">Ganesh Chand</span>
-                        <span class="data-list">Bikash Chand</span>
+                            <span class="data-title">Nom et Prenom</span>
+                        @foreach ($minervals as $min)
+                            <span class="data-list">{{ $min->nom_etu }} {{ $min->prenom_etu }}</span>
+                        @endforeach
                     </div>
                     <div class="data email">
                         <span class="data-title">Email</span>
-                        <span class="data-list">premshahi@gmail.com</span>
-                        <span class="data-list">deepachand@gmail.com</span>
-                        <span class="data-list">prakashhai@gmail.com</span>
-                        <span class="data-list">manishachand@gmail.com</span>
-                        <span class="data-list">pratimashhai@gmail.com</span>
-                        <span class="data-list">manshahi@gmail.com</span>
-                        <span class="data-list">ganeshchand@gmail.com</span>
+                        @foreach ($minervals as $min)
+                            <span class="data-list">{{ $min->email_etu }}</span>
+                        @endforeach
                     </div>
                     <div class="data joined">
                         <span class="data-title">Date</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-12</span>
-                        <span class="data-list">2022-02-13</span>
-                        <span class="data-list">2022-02-13</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-14</span>
-                        <span class="data-list">2022-02-15</span>
+                        @foreach ($minervals as $min)
+                            <span class="data-list">{{ $min->created_at3 }}</span>
+                        @endforeach
                     </div>
                     <div class="data type">
                         <span class="data-title">Tranche</span>
-                        <span class="data-list">New</span>
-                        <span class="data-list">Member</span>
-                        <span class="data-list">Member</span>
-                        <span class="data-list">New</span>
-                        <span class="data-list">Member</span>
-                        <span class="data-list">Member</span>
+                        @foreach ($minervals as $min)
+                            <span class="data-list">{{ $min->tranche }}<sup>e</sup>tranche </span>
+                        @endforeach
                     </div>
 
                 </div>
