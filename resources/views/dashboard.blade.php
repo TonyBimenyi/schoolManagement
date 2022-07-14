@@ -37,13 +37,13 @@
                     <div class="box box3">
                         <i class="fa-solid fa-graduation-cap"></i>
                         <span class="text">Total des etudiants</span>
-                        <span class="number">120</span>
+                        <span class="number">{{ $count_student }}</span>
                     </div>
                     <div class="box box1">
 
                         <i class="fa-solid fa-right-from-bracket"></i>
                         <span class="text">Depenses</span>
-                        <span class="number">12.000.000 Fbu</span>
+                        <span class="number">{{ number_format($sum_depenses) }} Fbu</span>
                     </div>
                     <div class="box box2">
                         <i class="fa-solid fa-right-to-bracket"></i>
