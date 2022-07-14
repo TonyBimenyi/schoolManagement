@@ -54,7 +54,7 @@
             <i class='bx bx-book-alt' ></i>
             <span class="link_name">Cours</span> --}}
 
-          <a href="miverval_dash">
+          <a href="entree">
             <i class='bx bx-line-chart' ></i>
             <span class="link_name">Finances</span>
           </a>

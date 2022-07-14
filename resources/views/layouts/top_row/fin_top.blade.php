@@ -1,6 +1,6 @@
 
 <div class="header_part">
-    <a class="" href="{{ url('miverval_dash') }}">
+    {{-- <a class="" href="{{ url('miverval_dash') }}">
         <div class="menu_li  {{Request::is('admin') ? 'active':''}}">
             <div class="icon">
                 <i class="fa-solid fa-gauge"></i>
@@ -9,7 +9,7 @@
                 <p>TABLEAU DE BORD</p>
             </div>
         </div>
-    </a>
+    </a> --}}
     <a class="" href="{{ url('entree') }}">
     <div class="menu_li  {{Request::is('') ? 'active':''}}">
         <div class="icon">
