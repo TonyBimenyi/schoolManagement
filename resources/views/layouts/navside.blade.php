@@ -82,7 +82,7 @@
       </div>
       <div class="name-job">
         <div class="profile_name">{{Auth::user()->name;}}</div>
-        <div class="job">Super Admin</div>
+        <div class="job">{{Auth::user()->name;}}</div>
       </div>
       <i class='bx bx-log-out' ></i>
     </div>

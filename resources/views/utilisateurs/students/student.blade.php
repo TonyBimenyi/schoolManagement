@@ -11,26 +11,7 @@
     <div class="table">
         <div class="table_content">
             <div class="search_row">
-                <div class="sort">
-                    <div class="fac">
-                        <select name="" id="">
-                            <option value="" selected disabled>--Faculte--</option>
-                        </select>
-                    </div>
-                    <div class="spec">
-                        <select name="" id="">
-                            <option value="" selected disabled>--Specialisation--</option>
-                        </select>
-                    </div>
-                    <div class="classe">
-                        <select name="" id="classe">
-                            <option value="" disabled selected>--Select the Class--</option>
-                            <option value="BAC I">BAC I</option>
-                            <option value="BAC II">BAC II</option>
-                            <option value="BAC III">BAC III</option>
-                        </select>
-                    </div>
-                </div>
+
                 <div class="search">
                     <input type="search" placeholder="Rechercher...">
                 </div>

@@ -43,7 +43,7 @@
                                 <td>{{ $ens->email_ens }}</td>
                                 <td>{{ $ens->adress_ens }}</td>
                                 <td>{{ $ens->sexe_ens }}</td>
-                                <td><button class="edit">Details</button></td>
+                                {{-- <td><button class="edit">Details</button></td> --}}
                                {{-- <a href=""><td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td> --}}
 
                                  <td id="btn"><a href="{{ url('edit_teacher/'.$ens->id_ens) }}"><button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></a></td>
