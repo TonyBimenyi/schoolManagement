@@ -79,6 +79,10 @@ class FinanceController extends Controller
         ->get();
         return view('finances.stats.stats',compact('stats'));
     }
+    public function recu_minos($id)
+    {
+        return view('finances.Minervals.recu_minos');
+    }
 
 
 }

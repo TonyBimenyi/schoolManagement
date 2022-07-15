@@ -1,4 +1,11 @@
 
+<style>
+    @media print {
+    .header_part{
+        display: none;
+    }
+}
+</style>
 <div class="header_part">
     <a class="" href="{{ url('admin') }}">
     <div class="menu_li  {{Request::is('admin') ? 'active':''}}">

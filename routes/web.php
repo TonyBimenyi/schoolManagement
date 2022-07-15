@@ -40,7 +40,7 @@ Route::middleware(['auth',])->group(function(){
     Route::get('edit_student/{id}','App\Http\Controllers\StudentController@edit_student');
     Route::put('update_student/{id}','App\Http\Controllers\StudentController@update_student');
     Route::get('delete_student/{id}','App\Http\Controllers\StudentController@delete_student');
-    // Route::get('attestation/{id}','App\Http\Controllers\StudentController@attestation');
+    Route::get('attestation/{id}','App\Http\Controllers\StudentController@attestation');
     Route::get('id_etudiant','App\Http\Controllers\InfoController@id_etudiant');
     Route::get('attestation',function(){
         $pdf = PDF::loadView('attestation');
@@ -78,6 +78,7 @@ Route::middleware(['auth',])->group(function(){
     Route::get('list_minos','App\Http\Controllers\FinanceController@list_minerval');
     Route::get('student_list','App\Http\Controllers\FinanceController@list_etudiants');
     Route::get('add_minerval/{id}','App\Http\Controllers\FinanceController@add_minerval');
+    Route::get('recu_minos/{id}','App\Http\Controllers\FinanceController@recu_minos');
     Route::post('insert_minerval','App\Http\Controllers\FinanceController@insert_minerval');
     //END FINANCES
 

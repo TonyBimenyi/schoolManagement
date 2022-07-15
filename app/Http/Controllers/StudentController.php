@@ -109,8 +109,15 @@ class StudentController extends Controller
 
         return redirect('student')->with('alert',"L'étudiant est supprimé");
     }
-    public function attestation()
+    public function attestation($id)
     {
-        return view('utilisateurs.students.attestation');
+
+        $student = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        ->where('etudiants.id_etu',$id)
+        ->first();
+        $faculte = Faculte::get();
+        return view('utilisateurs.students.attestation',compact('student','faculte'));
     }
 }

@@ -11,7 +11,14 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('frontend/css/navside.css')}}">
      <style>
-
+         @media print {
+         .sidebar{
+            display: none;
+         }
+         .home_content{
+            display: none;
+         }
+      }
 
      </style>
    </head>
