@@ -37,14 +37,14 @@
                                 <td>{{$uti->name}}</td>
                                 <td>{{$uti->email}}</td>
                                 <td> <button id="role">{{$uti->role}}</button></td>
-                                <td> <button id="etat"> Desactiver</button> <br>
+                                {{-- <td> <button id="etat"> Desactiver</button> <br> --}}
                                     {{-- @if ($utilisateur->etat==0) --}}
                                          {{-- <small style="color: red;font-weight:700;">Etat:Inactive</small> --}}
                                     {{-- @else --}}
-                                    <small style="color: green;font-weight:700"> Etat:Active </small>
+                                    {{-- <small style="color: green;font-weight:700"> Etat:Active </small> --}}
                                     {{-- @endif --}}
 
-                                </td>
+                                {{-- </td> --}}
                                 <td id="btn"> <button  class="edit"><i class="fa-solid fa-pen-to-square"></i> Modifier</button></td>
                                 <td> <button  id="delete"><i class="fa-solid fa-trash-can"></i> Supprimer</button></td>
                             </tr>

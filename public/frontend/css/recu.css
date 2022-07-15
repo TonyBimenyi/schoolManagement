@@ -32,3 +32,8 @@ button{
 .recu_body{
     margin-top: 50px;
 }
+@media print{
+    .buttons{
+        display: none;
+    }
+}

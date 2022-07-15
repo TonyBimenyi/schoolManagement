@@ -26,8 +26,14 @@
         <h2 style="text-align: center">RECU DE PAIEMENT DU MINERVAL</h2>
     </div>
     <div class="recu_body">
-        <p>Recu de Monsieur Yvan Igor, etudiant de BAC III en Genie Logiciel</p>
-        <p>pour le paiement du minerval du 3e tranche,</p>
-        <p>Somme de: 3500000 Fbu</p>
+        <p>Recu de
+            @if ($minervals->sexe_etu=='Homme')
+                {{ 'Monsieur' }}
+            @else
+                 {{ 'Madame' }}
+            @endif
+          {{ $minervals->nom_etu }} {{ $minervals->prenom_etu }}, etudiant de {{ $minervals->classe }} en {{ $minervals->nom_spec }}</p>
+        <p>pour le paiement du minerval du {{ $minervals->tranche }}e tranche,</p>
+        <p>Somme de: {{ number_format($minervals->montant_entree) }} Fbu</p>
     </div>
 </div>

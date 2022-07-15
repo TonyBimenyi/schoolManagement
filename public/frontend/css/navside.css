@@ -268,3 +268,8 @@
        left: 0;
      }
    }
+   .profile-details i{
+    color: white;
+    font-size: 30px;
+    margin-right: 50px;
+   }

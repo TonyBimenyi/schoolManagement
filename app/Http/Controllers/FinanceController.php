@@ -81,7 +81,16 @@ class FinanceController extends Controller
     }
     public function recu_minos($id)
     {
-        return view('finances.Minervals.recu_minos');
+
+        $minervals = Entree ::select(DB::raw('entrees.*,etudiants.*,facultes.*,specialisations.*'))
+        ->join('etudiants','entrees.id_etu','=','etudiants.id_etu')
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        ->where('entrees.id_entree',$id)
+        ->first();
+        $faculte = Faculte::get();
+        return view('finances.Minervals.recu_minos',compact('minervals','faculte'));
+        // return view('finances.Minervals.recu_minos');
     }
 
 
