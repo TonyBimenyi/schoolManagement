@@ -66,5 +66,13 @@
     color: var(--primary) !important;
     font-weight: 700;
 }
+@media print {
+    .menu_li{
+     display: none;
+    }
+    .header_part{
+        display: none;
+    }
 
+  }
 

@@ -112,6 +112,7 @@ class StudentController extends Controller
     }
     public function attestation($id)
     {
+<<<<<<< HEAD
             // $student=Student::where('id_etu',$id)->first();
             $student = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
             ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
@@ -121,6 +122,16 @@ class StudentController extends Controller
             $faculte = Faculte::get();
 
             return view('utilisateurs.students.attestation',compact('student','faculte'));
+=======
+
+        $student = Student ::select(DB::raw('etudiants.*,facultes.*,specialisations.*'))
+        ->join('facultes','etudiants.id_fac','=','facultes.id_fac')
+        ->join('specialisations','etudiants.id_spec','=','specialisations.id_spec')
+        ->where('etudiants.id_etu',$id)
+        ->first();
+        $faculte = Faculte::get();
+        return view('utilisateurs.students.attestation',compact('student','faculte'));
+>>>>>>> f35230d968975fba0b84b897097972d1a586a62a
     }
     public function att()
     {

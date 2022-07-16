@@ -28,7 +28,6 @@ class EntreeController extends Controller
         $entrees->type_entree=$request->input('type');
         $entrees->designation_entree=$request->input('designation');
         $entrees->montant_entree=$request->input('montant');
-        $entrees->id_min='1';
         $entrees->save();
         $stat = new Stats();
         $stat->id_entree=$request->input('id');
@@ -56,7 +55,7 @@ class EntreeController extends Controller
         ->update(['type_revenu'=>$request->input('type'),
                     'montant_revenu'=>$request->input('montant')]);
 
-                    return redirect('entree')->with('alert','Entree a été modifié');                 
+                    return redirect('entree')->with('alert','Entree a été modifié');
     }
     public function delete_entree($id)
     {

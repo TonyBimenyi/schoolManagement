@@ -11,7 +11,14 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('frontend/css/navside.css')}}">
      <style>
-
+         @media print {
+         .sidebar{
+            display: none;
+         }
+         .home_content{
+            display: none;
+         }
+      }
 
      </style>
    </head>
@@ -72,12 +79,16 @@
     <div class="profile-details">
       <div class="profile-content">
         <!--<img src="image/profile.jpg" alt="profileImg">-->
+
       </div>
       <div class="name-job">
         <div class="profile_name">{{Auth::user()->name;}}</div>
-        <div class="job">Super Admin</div>
+        <div class="job">{{Auth::user()->role;}}</div>
       </div>
-      <i class='bx bx-log-out' ></i>
+        <a href="{{route('logout')}}"  onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class='bx bx-log-out' ></i></a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
     </div>
   </li>
 </ul>

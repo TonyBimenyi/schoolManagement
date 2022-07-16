@@ -61,6 +61,7 @@
                                 <td>{{ $minos->tranche }} e tranche</td>
                                 <td>{{ $minos->nom_fac }}</td>
                                 <td>{{ $minos->classe }}</td>
+                                <td id="btn"><a href="{{ url('recu_minos/'.$minos->id_entree) }}">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i> Recu</button></a></td>
                                 <td id="btn"><a href="">  <button style="padding: 8px 15px;"  class="edit"><i class="fa-solid fa-pen-to-square"></i></button></a></td>
                                 <td> <a href=""><button  style="padding: 8px 15px;"  id="delete"><i class="fa-solid fa-trash-can"></i></button></a></td>
                                 @endforeach
