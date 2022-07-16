@@ -40,7 +40,7 @@ Route::middleware(['auth',])->group(function(){
     Route::get('edit_student/{id}','App\Http\Controllers\StudentController@edit_student');
     Route::put('update_student/{id}','App\Http\Controllers\StudentController@update_student');
     Route::get('delete_student/{id}','App\Http\Controllers\StudentController@delete_student');
-    // Route::get('attestation/{id}','App\Http\Controllers\StudentController@attestation');
+    Route::get('att/{id}','App\Http\Controllers\StudentController@attestation');
     Route::get('id_etudiant','App\Http\Controllers\InfoController@id_etudiant');
     Route::get('attestation',function(){
         $pdf = PDF::loadView('attestation');
@@ -58,7 +58,7 @@ Route::middleware(['auth',])->group(function(){
     // END TEACHER
 
     // START PERSONNEL
-    Route::get('personnel','App\Http\Controllers\PersonnelController@list_personnel');
+    // Route::get('perl','App\Http\Controllers\PersonnelController@list_personnel');
     Route::get('create_personnel','App\Http\Controllers\PersonnelController@create_personnel');
     Route::post('insert_personnel','App\Http\Controllers\PersonnelController@insert_personnel');
     Route::get('edit_personnel/{id}','App\Http\Controllers\PersonnelController@edit_personnel');
@@ -110,6 +110,9 @@ Route::middleware(['auth',])->group(function(){
 
     //START STATS
     Route::get('stats','App\Http\Controllers\FinanceController@stats');
+    Route::get('/downloadPDF','App\Http\Controllers\StudentController@downloadPDF');
     //ENS STATS
+
+    Route::get('test','App\Http\Controllers\StudentController@att');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
